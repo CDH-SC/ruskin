@@ -5,7 +5,7 @@ import os
 
 # sets up connection with local database
 client = MongoClient('localhost:27017')
-db = client.admin
+db = client.ruskin
 
 # gets list of directories
 dirList = sorted(os.listdir('.'))
