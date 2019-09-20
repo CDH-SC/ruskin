@@ -1,0 +1,28 @@
+$primary-color: #47525e;
+$font-stack: Cardo, 'Futura', Times, serif;
+$secondary-color: #7697be;
+
+#welcomeHeader {
+  font-weight: bold;
+  color: $secondary-color;
+}
+
+#linksContainer {
+  width: 20%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#contentContainer {
+  width: 70%;
+  margin-right: 20px;
+}
+
+p {
+  line-height: 30px;
+}
+
+.pilot {
+  margin-top: 50px;
+  text-align: center;
+}

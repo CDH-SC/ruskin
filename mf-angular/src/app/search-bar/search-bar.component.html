@@ -1,0 +1,19 @@
+<div class="input-group w-100">
+  <input
+    type="text"
+    class="form-control searchBar"
+    placeholder="Search"
+    aria-label="Search"
+    (keyup.enter)="onEnter(route)"
+    [(ngModel)]="route">
+  <div class="input-group-append">
+    <a
+      class="input-group-text searchButton"
+      id="searchButton"
+      [routerLink]="['/search-results', route]"
+      routerLinkActive="active"
+      style="text-decoration: none;">
+        <i class="fa fa-lg fa-search text-grey" aria-hidden="true"></i>
+    </a>
+  </div>
+</div>

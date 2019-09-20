@@ -1,0 +1,114 @@
+<div *ngIf="diary" class="container-fluid">
+  <!-- Metadata -->
+  <div class="col-lg-4 col-md-8 col-12 offset-1">
+    <div class="row">
+      <h1>{{ diary.date }}: {{ diary.page[page-1].folio_num }}</h1>
+    </div>
+    <div class="row pl-4">
+      <div class="p-2"><b>Year:</b> {{ diary.date }}</div>
+      <div class="p-2"><b>Hand:</b> {{ diary.page[page-1].hand }}</div>
+      <div class="p-2"><b>Diary Num:</b> {{ diary.volume_num }}</div>
+    </div>
+    <div class="row pl-4">
+      <div class="p-2"><b>Folio Num:</b> {{ diary.page[page-1].folio_num }}</div>
+      <div class="p-2"><b>Manuscript Num:</b> {{ diary.ms_num }}</div>
+    </div>
+    <div class="row pl-4">
+      <div class="p-2"><b>Transcription Status:</b> {{ transcriptionStatus }}</div>
+      <div class="p-2"><b>Transcriber:</b> {{ diary.page[page-1].transcriber }}</div>
+    </div>
+  </div>
+  <!-- Metadata END -->
+
+  <br>
+
+  <!-- Search and Go-To Folio Bars -->
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <app-search-bar></app-search-bar>
+    </div>
+    <div class="col-2">
+      <div class="input-group">
+        <input type="text" class="form-control searchBar" placeholder="Go to Folio" aria-label="Search" (keyup.enter)="jumpToFolio(folioValue)" [(ngModel)]="folioValue">
+        <div class="input-group-append">
+          <a class="input-group-text searchButton" id="searchButton" style="text-decoration:none;" (click)="jumpToFolio(folioValue)">
+            <i class="fa fa-lg fa-arrow-circle-right text-grey" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Search and Go-To Folio Bars END -->
+
+  <br>
+
+  <!-- Pagination Bar for Folio Nums -->
+  <div class="row justify-content-center">
+    <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+      <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(1)">Cover</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+      </li>
+      <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+        <a (click)="setPage(page)">{{ diary.page[page-1].folio_num }}</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.currentPage + 1)">Next</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.totalPages)">Back Cover</a>
+      </li>
+    </ul>
+  </div>
+  <!-- Pagination Bar for Folio Nums END -->
+
+  <br>
+
+  <!-- Viewer Boxes for Manuscript/Transcription -->
+  <div class="row justify-content-center">
+    <div class="col-7 col-xl-5">
+      <div class="viewer-box-img">
+        <img src="{{ diary.notebook_url }}{{ diary.page[page-1].image }}">
+      </div>
+    </div>
+    <div class="col-7 col-xl-5">
+      <div class="viewer-box-transcript">
+        <div *ngIf="content" [innerHTML]="content" id="transcription"></div>
+      </div>
+    </div>
+  </div>
+  <!-- Viewer Boxes for Manuscript/Transcription END -->
+
+  <br>
+
+  <!-- Go To Folio Bar -->
+  <div class="row justify-content-center">
+    <div class="col-2">
+      <div class="input-group">
+        <input type="text" class="form-control searchBar" placeholder="Go to Folio" aria-label="Search" (keyup.enter)="jumpToFolio(folioValue)" [(ngModel)]="folioValue">
+        <div class="input-group-append">
+          <a class="input-group-text searchButton" id="searchButton" style="text-decoration:none;" (click)="jumpToFolio(folioValue)">
+            <i class="fa fa-lg fa-arrow-circle-right text-grey" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Go To Folio Bar END -->
+
+  <br>
+
+  <!-- Group Page -->
+  <div class="row justify-content-center" id="folio-group">
+    <ul *ngFor="let p of diary.page; let i = index">
+      <li>
+        <a *ngIf="i%20==0" (click)="goToGroup(i)">{{ p.folio_num }}</a>
+      </li>
+    </ul>
+  </div>
+  <!-- Group Page END -->
+
+  <br>
+</div>
