@@ -9,7 +9,7 @@ exports.getDiaries = async function(){
 
   //Try Catch the awaited promise to handle the error
   try {
-    var diaries = await Diary.find({}).sort({ date: 1 });
+    var diaries = await Diary.find({}).sort({ _id: 1 });
 
     return diaries;
 
