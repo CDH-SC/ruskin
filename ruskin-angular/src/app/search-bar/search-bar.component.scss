@@ -1,0 +1,8 @@
+$primary-color: #47525e;
+$font-stack: Cardo, 'Times New Roman', Times, serif;
+$secondary-color: #f24c30;
+
+.searchBar, .searchButton {
+  border: 1px solid $primary-color;
+  border-radius: 5px;
+}

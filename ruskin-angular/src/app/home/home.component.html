@@ -1,0 +1,45 @@
+<div class="d-flex flex-row justify-content-start align-items-start m-auto p-4 w-100">
+  <div class="d-flex flex-column justify-content-start align-items-start" id="linksContainer">
+    <app-volume-links></app-volume-links>
+  </div>
+  <div class="d-flex flex-column justify-content-start align-items-center" id="contentContainer">
+    <h1 class="pb-2" id="welcomeHeader">Welcome to the John Ruskin Diaries</h1>
+    <div class="w-50 pb-4">
+      <app-search-bar></app-search-bar>
+    </div>
+    <p>In nineteenth-century Great Britain, John Ruskin (1819-1900) was a figure about whom no reader could have been ignorant: 
+      a public intellectual, in ourterms, who had ideas about what buildings should look like, what Christianity should be, what 
+      paintings were valuable and not, what responsibility the state had to its citizens and what responsibilities citizens had to 
+      the state. He wrote about myths and about science, about the duties of the sexes, the limits of capitalism, the pleasures of 
+      dancing, the meaning of the Alps, the sorrowful testimony of Venice. He tried to transform the heart of Great Britain. And he 
+      also sold tea The private thoughts and ideas of this huge figure of nineteenth-century Great Britain are also available. Ruskin 
+      kept a diary journal through most of his working life. And it has never been published in full in any open access, color, and high quality form.
+      Ruskin’s diary journals–distributed in archives across the UK and US–are copious, searching, luminous, and bothered. They reveal the observations 
+      and the development of ideas that would, often enough, make the public world of print. They are a kind of personal workshop for the public man. But 
+      they are also private: reflections on states of mind, on states of soul, on a personal perception of the condition of Europe. Charting the energies of a 
+      great writer, the journals also open up the tormented world of Ruskin’s heart and the periodic failing of his mental health. They are impossible to summarize and 
+      replete with the testimonies of a life lived both to the full and, increasingly, on the verge.</p>
+    <div class="pilot">
+      <h1>*** This website is currently under development. ***</h1>
+    </div>
+  </div>
+</div>
+
+<!-- COPYRIGHT MODAL -->
+<div class="modal fade" id="copyrightModal" tabindex="-1" role="dialog" aria-labelledby="copyrightLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="copyrightLabel"><strong>DO YOU AGREE?</strong></h5>
+      </div>
+      <div class="modal-body">
+        <span>
+          Continuing to use this resource registers your agreement to recognize and abide by the acknowledgements and permissions restrictions described in the 'About' section of the site. Please ensure you have read and are familiar with them.
+        </span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="agree()">AGREE</button>
+      </div>
+    </div>
+  </div>
+</div>
