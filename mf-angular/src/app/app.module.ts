@@ -12,11 +12,12 @@ import { BrowseByDateComponent } from './browse-by-date/browse-by-date.component
 import { BrowseByHandComponent } from './browse-by-hand/browse-by-hand.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { LetterLinksComponent } from './letter-links/letter-links.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PageViewComponent } from './page-view/page-view.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
-import { VolumeLinksComponent } from './volume-links/volume-links.component';
+import { DiaryLinksComponent } from './diary-links/diary-links.component';
 
 import { PagerService } from './_shared/_services/pager.service';
 import { SearchService } from './_shared/_services/search.service';
@@ -42,11 +43,12 @@ const routes: Routes = [
     BrowseByHandComponent,
     HeaderComponent,
     HomeComponent,
+    LetterLinksComponent,
     NavBarComponent,
     PageViewComponent,
     SearchBarComponent,
     SearchResultsComponent,
-    VolumeLinksComponent,
+    DiaryLinksComponent,
   ],
   imports: [
     BrowserModule,
