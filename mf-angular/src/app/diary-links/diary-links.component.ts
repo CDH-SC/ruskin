@@ -6,12 +6,12 @@ import { Diary } from '../_shared/models/diary';
 import 'rxjs/add/operator/map';
 
 @Component({
-  selector: 'app-volume-links',
-  templateUrl: './volume-links.component.html',
-  styleUrls: ['./volume-links.component.scss'],
+  selector: 'app-diary-links',
+  templateUrl: './diary-links.component.html',
+  styleUrls: ['./diary-links.component.scss'],
   // encapsulation: ViewEncapsulation.None
 })
-export class VolumeLinksComponent implements OnInit {
+export class DiaryLinksComponent implements OnInit {
 
   diary: [Diary];
 
@@ -23,7 +23,7 @@ export class VolumeLinksComponent implements OnInit {
     });
   }
 
-  // Filters the volume links by specified string
+  // Filters the diary links by specified string
   // filterBy(prop: string) {
   //   return this.diary.sort((a, b) => a[prop] > b[prop] ? 1 : a[prop] === b[prop] ? 0 : -1);
   // }

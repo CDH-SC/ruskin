@@ -1,0 +1,8 @@
+<div class="d-flex flex-column justify-content-start align-items-start w-100" *ngIf="letter" id="letterLinksContainer">
+  <h2>Letters</h2>
+  <li *ngFor="let l of letter">
+    <a id={{l._id}} routerLink="/page-view/{{ l._id }}/1" routerLinkActive="active">
+      Letter {{ l._id }} ({{ l.date }})
+    </a>
+  </li>
+</div>

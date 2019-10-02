@@ -40,7 +40,7 @@ for row in range(1,diaryMD.nrows):
 		'type' : diaryMD.cell_value(row,11),
 		'format' : diaryMD.cell_value(row,12),
 		'notebook_url' : 'assets/images/'+diaryMD.cell_value(row,14)+"/",
-		'volume_num' : diaryMD.cell_value(row,14).replace('RF_MS_',''),
+		'diary_num' : diaryMD.cell_value(row,14).replace('RF_MS_',''),
 		'ms_num' : '[ms_num]'+str(row),
 		'page' : pages
 	}
@@ -52,4 +52,4 @@ for row in range(1,diaryMD.nrows):
 	print('Created '+str(row)+' of '+str(diaryMD.nrows-1)+' as {1}'.format(diaryMD.ncols - 1,result.inserted_id))
 
 # notifies user of the completion of all imports
-print('Successfully imported '+str(diaryMD.nrows-1)+' volumes into the database!')
+print('Successfully imported '+str(diaryMD.nrows-1)+' diaries into the database!')
