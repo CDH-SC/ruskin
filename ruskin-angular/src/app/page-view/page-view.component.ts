@@ -72,6 +72,10 @@ export class PageViewComponent implements OnInit {
       const id = this.route.snapshot.paramMap.get('id');
       this.router.navigate(['page-view/', id, page]);
       this.content = this.sanitizer.bypassSecurityTrustHtml(this.diary.page[page].content);
+      // check if this works when there is a transcription
+      //if (this.content.changingThisBreaksApplicationSecurity == null) {
+        //this.content = "[The John Ruskin Diaries have not yet been transcribed]";
+     // }
   }
 
   jumpToFolio(folioValue) {

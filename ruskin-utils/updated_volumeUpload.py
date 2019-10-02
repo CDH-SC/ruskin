@@ -25,7 +25,7 @@ directory = "../ruskin-archive/"
 
 #connect to MongoDB, change the << MONGODB URL >> to reflect your own connection string
 client = MongoClient('mongodb://localhost:27017/')
-ruskin-_db = client.ruskin- # db
+ruskin_db = client.ruskin # db
 
 # Issue the serverStatus command and print the results to check server status
 # uncomment two lines below
@@ -39,7 +39,7 @@ ruskin-_db = client.ruskin- # db
 # into mongodb.             #
 #############################
 def upload_volume(pageArray, notebookID):
-    ruskin-_db.diaries.update_one(
+    ruskin_db.diaries.update_one(
     {"_id":notebookID},
     {
     "$set": {

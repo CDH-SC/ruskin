@@ -2,10 +2,10 @@
 
 # Label this stage as 'builder'
 FROM node:latest
-ENV a /mf-angular
-ENV e /mf-api
+ENV a /ruskin-angular
+ENV e /ruskin-api
 ENV PORT 80
-ENV DB_HOST mongodb://mf_db2:27017/mf
+ENV DB_HOST mongodb://ruskin_db2:27017/ruskin
 
 COPY .${a}/package.json ./
 

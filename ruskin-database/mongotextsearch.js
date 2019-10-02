@@ -1,5 +1,5 @@
 conn = new Mongo();
-db = conn.getDB("ruskin-");
+db = conn.getDB("ruskin");
 
 var search = "trees dogs";
 

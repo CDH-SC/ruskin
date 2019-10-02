@@ -17,8 +17,8 @@
         </fileDesc>
         <encodingDesc>
             <appInfo>
-                <application version="1.0" ident="ruskin-ield_TEI">
-                    <label>ruskin-ield TEI</label>
+                <application version="1.0" ident="ruskinield_TEI">
+                    <label>ruskinield TEI</label>
                 </application>
             </appInfo>
         </encodingDesc>
@@ -36,7 +36,7 @@
                         transform as follows: <list>
                             <item>added handNotes information to head</item>
                             <item>tagged ^ as metamark </item>
-                            <item>second transform with "ruskin-ield.xsl" to convert font tags into
+                            <item>second transform with "ruskinield.xsl" to convert font tags into
                                 editing marks</item>
                         </list></p></change>
                 <change><date>2018-03-29T01:00:23Z</date><name>Ryan</name></change>
@@ -182,7 +182,7 @@
             <p>Strange! - Henry, not having read </p>
             <p>this, saw far-open horizons.</p>
             <p>He smelt pine &amp; carnation; that is </p>
-            <p>what is coruskin-ortable in the </p>
+            <p>what is coruskinortable in the </p>
             <p>descent from the opened heavens.</p>
             <p> </p>
             <p>It is terrible to begin with raw time </p>
@@ -269,7 +269,7 @@
             <p>I write to him.</p>
             <p> “It makes one’s skin very hot to think </p>
             <p>of being “remaindered”. It is one of </p>
-            <p>those uncoruskin-ortable processes, </p>
+            <p>those uncoruskinortable processes, </p>
             <p>like what goes on in the grave. </p>
             <p>But we in our free spirits are </p>
             <p>apart from both these processes,</p>
@@ -1392,7 +1392,7 @@
             <p>another. I have chosen, but who knows </p>
             <p>how wisely, for the poet cannot choose, </p>
             <p>or distinguish one song from another. </p>
-            <p>Coruskin-ort yourself with anything you </p>
+            <p>Coruskinort yourself with anything you </p>
             <p>like in these dateless fragments, &amp; </p>
             <p>forget the rest. </p>
             <p> We are happy this morning in a </p>
@@ -4099,7 +4099,7 @@
             <p> </p>
             <p>I have sent him mignonette &amp; forget-me-nots </p>
             <p>&amp; “Image &amp; Superscription”, &amp; I have written </p>
-            <p>coruskin-ortable words …</p>
+            <p>coruskinortable words …</p>
             <p> But <hi rend="underline">this</hi> kettle of fish, with the live </p>
             <p>eels leaping about in their agony, </p>
             <p>is too much for me.</p>
@@ -4594,7 +4594,7 @@
             <p>are making the world go. Poor little Bernhard!</p>
             <p>God has to bear all this from us; but this </p>
             <p>Easter we will try to offer Him Souls, as </p>
-            <p>fresh &amp; welcomed as a bit <del>of</del><unclear>worruskin-ul</unclear></p>
+            <p>fresh &amp; welcomed as a bit <del>of</del><unclear>worruskinul</unclear></p>
             <p>turf to a <del>pris</del> lark!</p>
             <p>Palm Sunday</p>
             <p>March 27<hi rend="superscript">th.</hi></p>
@@ -4607,8 +4607,8 @@
             <p>that bring before me the brows </p>
             <p>– the seas of the dead – I read </p>
             <p>Herrick’s <note place="foot" xml:id="ftn178" n="178"><p> Herrick: Robert Herrick,
-                        1591-1674: English lyric poet and cleric.</p></note> “Sweet Spirit Coruskin-ort
-                    me”<note place="foot" xml:id="ftn179" n="179"><p>O-Sweet Spirit Coruskin-orter: a
+                        1591-1674: English lyric poet and cleric.</p></note> “Sweet Spirit Coruskinort
+                    me”<note place="foot" xml:id="ftn179" n="179"><p>O-Sweet Spirit Coruskinorter: a
                         phrase from Robert Herrick’s poem, “Litany to the Holy
                 Spirit”.</p></note></p>
             <p>there is fog outside, &amp; even the birds </p>
@@ -4840,7 +4840,7 @@
             <p>the two kinds of music</p>
             <p>‘one that is like a man &amp; one </p>
             <p> that is like a woman’ </p>
-            <p>made him quite uncoruskin-ortable. </p>
+            <p>made him quite uncoruskinortable. </p>
             <p>There are aesthetic mistakes </p>
             <p>that strike one as improper </p>
             <p>– &amp; one glances at the ladies.</p>
@@ -5420,7 +5420,7 @@
             <p>a way home I had felt the </p>
             <p>remoteness of collapse). The </p>
             <p>dismal man said my case was </p>
-            <p>“very unusual” – nice coruskin-ort for </p>
+            <p>“very unusual” – nice coruskinort for </p>
             <p>the stricken Michael.</p>
             <p>I felt like a cold dead body from </p>
             <p>the waist – the rest of me like a </p>
@@ -8077,7 +8077,7 @@
             <p>are chaotic.</p>
             <p>I put irises of brown banners </p>
             <p>in Murano glass – This </p>
-            <p>does not coruskin-ort me.</p>
+            <p>does not coruskinort me.</p>
             <p>We sleep in blankets of </p>
             <p>combed wool, on feathers </p>
             <p>piled like the living breast</p>
@@ -8398,7 +8398,7 @@
             <p>sapphires, carbuncles, sky-blue </p>
             <p>enamel, emeralds, a rose-</p>
             <p>topaz.</p>
-            <p>Old M<hi rend="underline"><hi rend="superscript">rs</hi></hi> Appia tells coruskin-ortable </p>
+            <p>Old M<hi rend="underline"><hi rend="superscript">rs</hi></hi> Appia tells coruskinortable </p>
             <p>things of Miss Gérante’s end. </p>
             <p>She, of course, expected Michael </p>
             <p>to wear a bonnet &amp; protestant </p>
@@ -8958,7 +8958,7 @@
             <p>rooms. Actually this Kettle-</p>
             <p>of-Fish-Year won’t let us have peace </p>
             <p>in the Forest &amp; we have to turn </p>
-            <p>out of our coruskin-ortable rooms </p>
+            <p>out of our coruskinortable rooms </p>
             <p>on Friday, July 29<hi rend="superscript">th</hi>.</p>
             <p>Stoney Cross is just the same as 20 </p>
             <p>years ago – except that the sun is</p>
@@ -9807,7 +9807,7 @@
             <p>We <del>walk </del><add>wake</add> in awful depression – </p>
             <p>the purlieus of dying. The Forest </p>
             <p>seems to choke one in the night </p>
-            <p>while one sleeps. We coruskin-ort </p>
+            <p>while one sleeps. We coruskinort </p>
             <p>ourselves with the thought Amy </p>
             <p>will soon be back at the Manor </p>
             <p>&amp; a refuge will appear.</p>
