@@ -43,11 +43,11 @@ exports.createLetter = async function(req, res){
 
   //Require body contains form values
   var letter = {
-    _id: number;
-    date: string;
-    author: string;
-    addressee: string;
-    letter_num: string;
+    _id: number,
+    date: string,
+    author: string,
+    addressee: string,
+    letter_num: string
   }
 
   try {
