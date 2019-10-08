@@ -1,5 +1,5 @@
-# Michael Field
-Live Version: http://ruskin-.dev-cdh.org/home
+# Ruskin
+Live Version: http://ruskin.dev-cdh.org/home
 ### Getting Started
 ---
 #### Prerequisites
@@ -14,9 +14,9 @@ Live Version: http://ruskin-.dev-cdh.org/home
 
 #### Installing
 * Clone this repo
-  * ```git clone https://github.com/CDH-SC/ruskin-.git```
+  * ```git clone https://github.com/CDH-SC/ruskin.git```
 * Install Prerequisites (Check the above section)
-* ```cd <path>/ruskin-```
+* ```cd <path>/ruskin```
   * ```cd ruskin-api/```
     * ```npm install```
   * ```cd ruskin-angular/```
@@ -28,7 +28,7 @@ Live Version: http://ruskin-.dev-cdh.org/home
 
 
 * Create a local database
-  * A binary BSON dump of the database can be found: ruskin-/ruskin-database/dump
+  * A binary BSON dump of the database can be found: ruskin/ruskin-database/dump
   * Ensure Mongo has been started on your local machine:
    * Linux:
     * ```$ sudo service mongod start```
@@ -43,11 +43,11 @@ Live Version: http://ruskin-.dev-cdh.org/home
 * MongoDB default port number: 27017
   * ```$ mongorestore <path to the backup>```
 * Example:
-  * ```$ mongorestore ruskin-/ruskin-database/dump```
+  * ```$ mongorestore ruskin/ruskin-database/dump```
  * Troubleshooting assitance can be found [here](https://docs.mongodb.com/manual/tutorial/backup-and-restore-tools/)
 
 #### Tar Archiving Utility, Upload Script - Dealing with Michael Field Archives
-* Please refer to README found [here](https://github.com/CDH-SC/ruskin-/tree/master/ruskin-archive)
+* Please refer to README found [here](https://github.com/CDH-SC/ruskin/tree/master/ruskin-archive)
 
 #### Git LFS - Dealing with Michael Field images
 * Installing Git LFS
@@ -82,11 +82,11 @@ Live Version: http://ruskin-.dev-cdh.org/home
 * Terminal 1 : Runs the mongo database
   * ```mongod``` or ```sudo mongod```
 * Terminal 2 : Runs the Express server
-  * ```cd <path>/ruskin-/ruskin-api/```
+  * ```cd <path>/ruskin/ruskin-api/```
   * ```nodemon server```
   * If cannot find module ```npm install --save <module>```
 * Terminal 3 : Builds the webapp to the dist directory to be served by the Express server
-  * ```cd <path>/ruskin-/ruskin-angular/```
+  * ```cd <path>/ruskin/ruskin-angular/```
   * ```ng build --watch```
 * The Michael Field application should now be available at http://localhost:3000/home
 
@@ -94,7 +94,7 @@ Live Version: http://ruskin-.dev-cdh.org/home
 * Install compdoc package
   * ```npm i -g @compodoc/compodoc```
 * Create the documentation for Angular
-  * ```cd <path>/ruskin-/ruskin-angular/```
+  * ```cd <path>/ruskin/ruskin-angular/```
   * ```npm run doc:buildandserve```
   * ```Open broswer at http://localhost:8080```
 
@@ -102,8 +102,8 @@ Live Version: http://ruskin-.dev-cdh.org/home
 ---
 * Run ```ng test``` to execute the unit tests via [Karma](https://karma-runner.github.io).
 * To execute unit tests for Angular
-  * ```cd <path>/ruskin-/ruskin-angular/```
-  * ```npm test ``` which runs the tests found in the directory ```<path>/ruskin-/ruskin-angular/spec/```
+  * ```cd <path>/ruskin/ruskin-angular/```
+  * ```npm test ``` which runs the tests found in the directory ```<path>/ruskin/ruskin-angular/spec/```
 
 ### Built With
 * [Angular4](https://angular.io/)
