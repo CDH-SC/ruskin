@@ -12,7 +12,16 @@ COPY .${a}/package.json ./
 # Install node modules
 RUN npm i -dd && mkdir ${a} && cp -R ./node_modules ${a}
 
-RUN rm /package.json 
+RUN rm /package.json
+
+WORKDIR /
+### STAGE 2: Server ###
+
+COPY .${e}/package.json .${e}/package-lock.json ./
+
+# Install node modules
+RUN npm i -dd && mkdir ${e} && cp -R ./node_modules ${e} && cp package.json ${e}
+
 
 WORKDIR ${a}
 
@@ -22,14 +31,6 @@ RUN $(npm bin)/ng --version
 RUN $(npm bin)/ng build
 
 RUN ls -lah
-
-WORKDIR /
-### STAGE 2: Server ###
-
-COPY .${e}/package.json .${e}/package-lock.json ./
-
-# Install node modules
-RUN npm i -dd && mkdir ${e} && cp -R ./node_modules ${e} && cp package.json ${e}
 
 WORKDIR ${e}
 
