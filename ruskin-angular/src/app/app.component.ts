@@ -7,7 +7,7 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'The Diaries of Michael Field';
+  title = 'The Diaries of John Ruskin';
 
   constructor(private router: Router) {
     this.router.events.subscribe(event => {

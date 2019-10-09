@@ -46,10 +46,10 @@ Live Version: http://ruskin.dev-cdh.org/home
   * ```$ mongorestore ruskin/ruskin-database/dump```
  * Troubleshooting assitance can be found [here](https://docs.mongodb.com/manual/tutorial/backup-and-restore-tools/)
 
-#### Tar Archiving Utility, Upload Script - Dealing with Michael Field Archives
+#### Tar Archiving Utility, Upload Script - Dealing with John Ruskin Archives
 * Please refer to README found [here](https://github.com/CDH-SC/ruskin/tree/master/ruskin-archive)
 
-#### Git LFS - Dealing with Michael Field images
+#### Git LFS - Dealing with John Ruskin images
 * Installing Git LFS
   * Mac:
     * To use Homebrew, run ```brew install git-lfs```
@@ -88,7 +88,7 @@ Live Version: http://ruskin.dev-cdh.org/home
 * Terminal 3 : Builds the webapp to the dist directory to be served by the Express server
   * ```cd <path>/ruskin/ruskin-angular/```
   * ```ng build --watch```
-* The Michael Field application should now be available at http://localhost:3000/home
+* The John Ruskin application should now be available at http://localhost:3000/home
 
 ### Creating Documentation
 * Install compdoc package
