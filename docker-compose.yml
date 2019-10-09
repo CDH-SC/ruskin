@@ -1,0 +1,30 @@
+# Project: The Diaries of Michael Field
+# Description: A collection of works by Katharine Bradley and Edith Cooper who
+#              went by the pseudoname Michael Field
+# Technology Stack:
+# - MongoDB
+# - Express JS server
+# - Angular 4 frontend
+# - Node JS
+# - AKA MEAN stack
+
+version: '3'
+services:
+  # The angular frontend and express js server
+  angular:
+    build: .
+    ports:
+      - "127.0.0.1:8089:80"
+    links:
+      - database
+    environment:
+      VIRTUAL_HOST: ruskin.cdhsc.org
+    container_name: ruskin_web
+    volumes:
+      - "./ruskin-angular/src/assets/images:/ruskin-angular/dist/images"
+  # The mongodb
+  database:
+    build: ./ruskin-database
+    ports:
+      - '127.0.0.1:27017:27017'
+    container_name: ruskin_db
