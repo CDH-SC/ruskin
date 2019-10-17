@@ -1,8 +1,31 @@
 <div class="d-flex flex-column justify-content-start align-items-start w-100" *ngIf="letter" id="letterLinksContainer">
   <h2>Letters</h2>
-  <li *ngFor="let l of letter">
-    <a id={{l._id}} routerLink="/page-view/{{ l._id }}/1" routerLinkActive="active">
-      Letter {{ l._id }} ({{ l.date }})
-    </a>
+  <li *ngFor="let d of letter">
+    <mat-accordion>
+      <mat-expansion-panel>
+
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <a>Letters from the {{ d._id }}</a>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <li *ngFor="let y of d.years">
+          <mat-expansion-panel>
+
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <a>{{ y.year }}</a>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <li *ngFor="let l of y.letters">
+              <!-- id={{l.letter_num}} routerLink="/page-view/letters/{{ l.letter_num }}" routerLinkActive="active" -->
+              <a>{{ l.date }}</a>
+            </li>
+          </mat-expansion-panel>
+        </li>
+      </mat-expansion-panel>
+    </mat-accordion>
   </li>
 </div>

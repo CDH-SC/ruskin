@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { Diary } from '../_shared/models/diary';
+import { Letter } from '../_shared/models/letter';
 import { PagerService } from '../_shared/_services/index';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
@@ -16,6 +17,9 @@ export class PageViewComponent implements OnInit {
 
   // Define diary object
   diary: Diary;
+
+  // Define letter object
+  letter: Letter;
 
   // array of all items to be paged
   private allItems: any[];

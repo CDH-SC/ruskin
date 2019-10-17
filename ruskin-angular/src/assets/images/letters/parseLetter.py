@@ -27,13 +27,14 @@ lineNum = 1
 
 for file in dirList:
 	doc = docx.Document(file)
-	print(file + ":")
+	print("\n" + file + ":")
 	for i in doc.paragraphs:
 		if str(letNum) + ". " in str(i.text):
 			temp = str(i.text).split('. ', 1)[1].split(" to ")
 			authors.append(temp[0])
 			addressees.append(temp[1])
 			contents.append("")
+			# print(str(i.text))
 			# print(str(letNum) + " " + str(i.text))
 			letNum = letNum + 1
 			lineNum = 2
@@ -43,21 +44,82 @@ for file in dirList:
 					dates.append(str(i.text).split(", ", 1)[1])
 				else:
 					dates.append(str(i.text))
-				print(str(i.text) + "\n" + str(len(dates)) + "\t" + str(letNum))
+				# print(str(i.text) + "\n" + str(len(dates)) + "\t" + str(letNum-1))
 				lineNum = 1
 			else:
 				contents[letNum-2] += str(i.text) + '\n'
 
-# letNum = 1
-# for content in contents:
-# 	letter = {
-# 			'_id' : letNum,
-# 			'date' : "dates[letNum-1]",
-# 			'author' : authors[letNum-1],
-# 			'addressee' : addressees[letNum-1],
-# 			'letter_num' : letNum,
-# 			'content' : content
-# 		}
-# 	result = db.letters.insert_one(letter)
-# 	print('Created '+str(letNum)+' of '+str(len(contents))+' as {1}'.format(letNum,result.inserted_id))
-# 	letNum += 1
+#50s, 60s, 70s
+
+letNum = 1
+currYear = 0
+prevYear = currYear
+fifties = []
+sixties = []
+seventies = []
+letters = []
+
+for content in contents:
+	if "‘" in dates[letNum-1]:
+		currYear = int("18" + re.findall("‘[0-9][0-9]", dates[letNum-1])[0].split("‘")[1])
+	else:
+		currYear = int(re.findall("18[0-9][0-9]", dates[letNum-1])[0])
+
+	if (prevYear < currYear and prevYear != 0):
+		year = {
+			 'year' : prevYear,
+			 'letters' : letters
+			}
+		if prevYear > 1849 and prevYear < 1860:
+			fifties.append(year)
+		elif prevYear > 1859 and prevYear < 1870:
+			sixties.append(year)
+		elif prevYear > 1869 and prevYear < 1880:
+			seventies.append(year)
+		letters = []
+
+	prevYear = currYear
+
+	letter = {
+		'date' : dates[letNum-1],
+		'author' : authors[letNum-1],
+		'addressee' : addressees[letNum-1],
+		'letter_num' : letNum,
+		'content' : content
+	}
+	# print(str(currYear) + "\t" + str(letNum))
+	letters.append(letter)
+
+	letNum += 1
+
+year = {
+	 'year' : prevYear,
+	 'letters' : letters
+	}
+if prevYear > 1849 and prevYear < 1860:
+	fifties.append(year)
+elif prevYear > 1859 and prevYear < 1870:
+	sixties.append(year)
+elif prevYear > 1869 and prevYear < 1880:
+	seventies.append(year)
+
+decade = {
+	'_id' : "1850s",
+	'years' : fifties
+}
+result = db.letters.insert_one(decade)
+print('Created 1 of 3 as {1}'.format(1,result.inserted_id))
+
+decade = {
+	'_id' : "1860s",
+	'years' : sixties
+}
+result = db.letters.insert_one(decade)
+print('Created 2 of 3 as {1}'.format(2,result.inserted_id))
+
+decade = {
+	'_id' : "1870s",
+	'years' : seventies
+}
+result = db.letters.insert_one(decade)
+print('Created 3 of 3 as {1}'.format(3,result.inserted_id))

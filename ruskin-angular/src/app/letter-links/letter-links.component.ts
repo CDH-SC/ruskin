@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Http } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DataService } from '../../services/pageview.service';
@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
   selector: 'app-letter-links',
   templateUrl: './letter-links.component.html',
   styleUrls: ['./letter-links.component.scss'],
-  // encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None
 })
 export class LetterLinksComponent implements OnInit {
 

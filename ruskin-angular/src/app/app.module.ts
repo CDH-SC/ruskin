@@ -24,6 +24,9 @@ import { SearchService } from './_shared/_services/search.service';
 
 import * as $ from 'jquery';
 import * as bootstrap from 'bootstrap';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatExpansionModule } from '@angular/material';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -56,7 +59,9 @@ const routes: Routes = [
     HttpClientModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(routes),
-    OrderModule
+    OrderModule,
+    NoopAnimationsModule,
+    MatExpansionModule
   ],
   providers: [
     NgbActiveModal,

@@ -37,11 +37,11 @@ exports.getLettersById = async function(id){
 exports.createLetter = async function(letter){
   //Creating a new mongoose object by using the new keyword
   var newLetter = new Letter({
-    _id: number,
-    date: string,
-    author: string,
-    addressee: string,
-    letter_num: string
+    _id: string,
+    years: [{
+      year: number,
+      letters: []
+    }]
   })
 
   try {
@@ -72,10 +72,7 @@ exports.updateLetter = async function(letter){
   console.log(oldLetter)
   //Edit the letter object
   oldletter._id = letter._id
-  oldLetter.date = letter.date
-  oldLetter.author = letter.author
-  oldLetter.addressee = letter.addressee
-  oldLetter.letter_num = letter.letter_num
+  oldLetter.years = letter.years
 
 
   console.log(oldLetter)

@@ -36,14 +36,11 @@
       <li [ngClass]="{disabled:pager.currentPage === 1}">
         <a (click)="setPage(pager.currentPage - 1)">Previous</a>
       </li>
-      <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-        <a (click)="setPage(page)">{{ diary.page[page-1].folio_num }}</a>
-      </li>
       <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
         <a (click)="setPage(pager.currentPage + 1)">Next</a>
       </li>
       <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-        <a (click)="setPage(pager.totalPages)">Back Cover</a>
+        <a (click)="setPage(pager.totalPages)">Back Cover {{  router.url }}</a>
       </li>
     </ul>
   </div>
@@ -53,16 +50,16 @@
 
   <!-- Viewer Boxes for Manuscript/Transcription -->
   <div class="row justify-content-center">
-    <div class="col-7 col-xl-5">
+    <div class="col-7 col-xl-5" >
       <div class="viewer-box-img">
         <img src="{{ diary.notebook_url }}{{ diary.page[page-1].image }}">
       </div>
     </div>
-    <div class="col-7 col-xl-5">
+   <!--  <div class="col-7 col-xl-5">
       <div class="viewer-box-transcript">
         <div *ngIf="content" [innerHTML]="content" id="transcription"></div>
       </div>
-    </div>
+    </div> -->
   </div>
   <!-- Viewer Boxes for Manuscript/Transcription END -->
 
@@ -122,18 +119,6 @@
     </div>
   </div>
   <!-- Go To Folio Bar END -->
-
-  <br>
-
-  <!-- Group Page -->
-  <div class="row justify-content-center" id="folio-group">
-    <ul *ngFor="let p of diary.page; let i = index">
-      <li>
-        <a *ngIf="i%20==0" (click)="goToGroup(i)">{{ p.folio_num }}</a>
-      </li>
-    </ul>
-  </div>
-  <!-- Group Page END -->
 
   <br>
 </div>
