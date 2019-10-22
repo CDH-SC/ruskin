@@ -1,0 +1,26 @@
+$primary-color: #47525e;
+$font-stack: Cardo, 'Times New Roman', Times, serif;
+$secondary-color: #f24c30;
+
+
+.viewer-box-transcript {
+  height: 700px;
+  width: 557px;
+  margin: auto;
+  line-height: 20px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid grey;
+  padding:5px 20px 5px 10px;
+  overflow: auto;
+}
+
+h1 {
+  color: #e62e00;
+  font-size: 32px
+}
+
+li {
+  list-style-type: none;
+  float: left;
+  margin-left: 1.5%;
+}

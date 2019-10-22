@@ -18,6 +18,7 @@ import { PageViewComponent } from './page-view/page-view.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { DiaryLinksComponent } from './diary-links/diary-links.component';
+import { TempLetterComponent } from './temp-letter/temp-letter.component';
 
 import { PagerService } from './_shared/_services/pager.service';
 import { SearchService } from './_shared/_services/search.service';
@@ -52,6 +53,7 @@ const routes: Routes = [
     SearchBarComponent,
     SearchResultsComponent,
     DiaryLinksComponent,
+    TempLetterComponent,
   ],
   imports: [
     BrowserModule,

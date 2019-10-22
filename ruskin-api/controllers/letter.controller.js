@@ -43,13 +43,9 @@ exports.createLetter = async function(req, res){
 
   //Require body contains form values
   var letter = {
-    _id: string,
-    years: [{
-      year: number,
-      letters: []
-    }]
+    _id: req.body._id,
+    years: req.body.years,
   }
-
   try {
     //Calling service function with new object from request body
     var createdLetter = await LetterService.createLetter(letter)
@@ -74,7 +70,7 @@ exports.updateLetter = async function(req, res){
   var letter = {
     id,
     _id: req.body._id ? req.body._id : null,
-    years: req.body.letters ? req.body.letters : null,
+    years: req.body.years ? req.body.years : null,
   }
 
   try {

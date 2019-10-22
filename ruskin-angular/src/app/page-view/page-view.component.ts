@@ -19,7 +19,7 @@ export class PageViewComponent implements OnInit {
   diary: Diary;
 
   // Define letter object
-  letter: Letter;
+  // letter: Letter;
 
   // array of all items to be paged
   private allItems: any[];
@@ -50,18 +50,25 @@ export class PageViewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // Get diary id + current page number from router
+    // Get diary/letter id + current page number from router
     const id = this.route.snapshot.paramMap.get('id');
     const pageNum = this.route.snapshot.paramMap.get('pageNum');
 
-    // Pass diary id through diairy api and subscribe to resulting data
-    this.http.get('/api/diaries/' + id).subscribe(data => {
+    // Pass diary/letter id through api and subscribe to resulting data
+    if (this.router.url.includes('letters')) {
+      // this.http.get('/api/letters/' + id).subscribe(data => {
+      // this.letter = data['data'];
+      // });
+
+    } else {
+      this.http.get('/api/diaries/' + id).subscribe(data => {
       this.diary = data['data'];
       this.allItems = data['data']['page'];
 
       // initialize page to pageNum from router
       this.setPage(+pageNum);
-    });
+      });
+    }
   }
 
   setPage(page: number) {

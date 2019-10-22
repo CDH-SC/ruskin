@@ -20,8 +20,7 @@
             </mat-expansion-panel-header>
 
             <li *ngFor="let l of y.letters">
-              <!-- id={{l.letter_num}} routerLink="/page-view/letters/{{ l.letter_num }}" routerLinkActive="active" -->
-              <a>{{ l.date }}</a>
+              <a id={{l.letter_num}} routerLink="/page-view/letters/{{ l.letter_num }}" routerLinkActive="active" >{{ l.date }}</a>
             </li>
           </mat-expansion-panel>
         </li>
