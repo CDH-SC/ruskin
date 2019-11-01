@@ -19,6 +19,7 @@ services:
       - database
     environment:
       VIRTUAL_HOST: ruskin.cdhsc.org
+      DB_HOST: 'mongodb://database:27017/ruskin'
     container_name: ruskin_web
     volumes:
       - "./ruskin-angular/src/assets/images:/ruskin-angular/dist/images"
