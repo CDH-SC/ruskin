@@ -34,14 +34,14 @@ for row in range(1,diaryMD.nrows):
 		'digital_collection' : diaryMD.cell_value(row,5),
 		'website' : diaryMD.cell_value(row,6),
 		'contributing_institution' : diaryMD.cell_value(row,7),
-		'rights' : diaryMD.cell_value(row,8),
+		# 'rights' : diaryMD.cell_value(row,8),
 		'language' : diaryMD.cell_value(row,9),
 		'digitization_specifications' : diaryMD.cell_value(row,10),
 		'type' : diaryMD.cell_value(row,11),
 		'format' : diaryMD.cell_value(row,12),
 		'notebook_url' : 'assets/images/'+diaryMD.cell_value(row,14)+"/",
 		'diary_num' : diaryMD.cell_value(row,14).replace('RF_MS_',''),
-		'ms_num' : '[ms_num]'+str(row),
+		# 'ms_num' : '[ms_num]'+str(row),
 		'page' : pages
 	}
 
@@ -49,7 +49,7 @@ for row in range(1,diaryMD.nrows):
 	result = db.diaries.insert_one(diary)
 
 	# notifies user of progress and increments the idNum counter
-	print('Created '+str(row)+' of '+str(diaryMD.nrows-1)+' as {1}'.format(diaryMD.ncols - 1,result.inserted_id))
+	print('Created '+str(row)+' of '+str(diaryMD.nrows-1)+' diaries as Diary {1}'.format(diaryMD.ncols - 1,result.inserted_id))
 
 # notifies user of the completion of all imports
 print('Successfully imported '+str(diaryMD.nrows-1)+' diaries into the database!')

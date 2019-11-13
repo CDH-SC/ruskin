@@ -52,11 +52,10 @@
   <div class="row justify-content-center">
     <div class="col-7 col-xl-5" *ngIf="router.url.match('[0-9]/[0-9]')">
       <div class="viewer-box-img">
-        <img src="{{ diary.notebook_url }}{{ diary.page[page-1].image }}">
+        <img src="{{ diary.notebook_url }}{{ diary.page[page-1].image }}" onError="this.src='assets/images/default.png'">
       </div>
     </div>
     <div class="col-7 col-xl-5" *ngIf="router.url.includes('letters')">
-      <app-temp-letter></app-temp-letter>
       <!-- <div class="viewer-box-transcript">
         <div *ngIf="content" [innerHTML]="content" id="transcription"></div>
       </div> -->
@@ -90,7 +89,7 @@
       </div>
       <div class="row pl-4">
         <div class="p-2"><b>Folio Num:</b> {{ diary.page[page-1].folio_num }}</div>
-        <div class="p-2"><b>Manuscript Num:</b> {{ diary.ms_num }}</div>
+        <!-- <div class="p-2"><b>Manuscript Num:</b> {{ diary.ms_num }}</div> -->
         <div class="p-2"><b>Transcription Status:</b> {{ transcriptionStatus }}</div>
         <div class="p-2"><b>Transcriber:</b> {{ diary.page[page-1].transcriber }}</div>
       </div>
@@ -98,7 +97,6 @@
         <div class="p-2"><b>Digital Collection:</b> {{ diary.digital_collection }}</div>
         <div class="p-2"><b>Contributing Institution:</b> {{ diary.contributing_institution }}</div>
         <div class="p-2"><b>Website:</b> {{ diary.website }}</div>
-        <div class="p-2"><b>Rights:</b> {{ diary.rights }}</div>
       </div>
     </div>
   </div>

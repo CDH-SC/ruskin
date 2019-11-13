@@ -64,7 +64,7 @@ export class PageViewComponent implements OnInit {
       this.http.get('/api/diaries/' + id).subscribe(data => {
       this.diary = data['data'];
       this.allItems = data['data']['page'];
-
+      
       // initialize page to pageNum from router
       this.setPage(+pageNum);
       });
@@ -84,10 +84,10 @@ export class PageViewComponent implements OnInit {
       this.router.navigate(['page-view/', id, page]);
       this.content = this.sanitizer.bypassSecurityTrustHtml(this.diary.page[page].content);
       // check if this works when there is a transcription
-      console.log();
       if (JSON.stringify(this.content) == "{}") {
         this.content = "[The John Ruskin Diaries have not yet been transcribed]";
       }
+      // console.log(this.diary.notebook_url + this.diary.page[page-1].image);
   }
 
   jumpToFolio(folioValue) {

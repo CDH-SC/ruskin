@@ -11,115 +11,132 @@ db = client.ruskin
 
 dirList = sorted(os.listdir('.'))
 for kDir in dirList:
-	if ".docx" not in kDir:
+	if ".html" not in kDir:
 		dirList.remove(kDir)
 print('Adding the following letters to the database:')
 print(dirList)
 
+from html.parser import HTMLParser
+from bs4 import BeautifulSoup
 
-contents = []
-dates = []
-authors = []
-addressees = []
+soup = BeautifulSoup(A1_49.html, 'html.parser')
 
-letNum = 1
-lineNum = 1
+class MyHTMLParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        print("Encountered a start tag:", tag)
 
-for file in dirList:
-	doc = docx.Document(file)
-	print("\n" + file + ":")
-	for i in doc.paragraphs:
-		if str(letNum) + ". " in str(i.text):
-			temp = str(i.text).split('. ', 1)[1].split(" to ")
-			authors.append(temp[0])
-			addressees.append(temp[1])
-			contents.append("")
-			# print(str(i.text))
-			# print(str(letNum) + " " + str(i.text))
-			letNum = letNum + 1
-			lineNum = 2
-		elif letNum != 1:
-			if bool(re.findall("‘[0-9][0-9]", str(i.text)) or bool(re.findall("18[0-9][0-9]", str(i.text)))):
-				if "Chelsea," in str(i.text) or "Lucerne," in str(i.text) or "Carlyle to Ruskin," in str(i.text):
-					dates.append(str(i.text).split(", ", 1)[1])
-				else:
-					dates.append(str(i.text))
-				# print(str(i.text) + "\n" + str(len(dates)) + "\t" + str(letNum-1))
-				lineNum = 1
-			else:
-				contents[letNum-2] += str(i.text) + '\n'
+    def handle_endtag(self, tag):
+        print("Encountered an end tag :", tag)
 
-#50s, 60s, 70s
+    def handle_data(self, data):
+        print("Encountered some data  :", data)
 
-letNum = 1
-currYear = 0
-prevYear = currYear
-fifties = []
-sixties = []
-seventies = []
-letters = []
+parser = MyHTMLParser()
+parser.feed(soup.prettify())
 
-for content in contents:
-	if "‘" in dates[letNum-1]:
-		currYear = int("18" + re.findall("‘[0-9][0-9]", dates[letNum-1])[0].split("‘")[1])
-	else:
-		currYear = int(re.findall("18[0-9][0-9]", dates[letNum-1])[0])
+# contents = []
+# dates = []
+# authors = []
+# addressees = []
 
-	if (prevYear < currYear and prevYear != 0):
-		year = {
-			 'year' : prevYear,
-			 'letters' : letters
-			}
-		if prevYear > 1849 and prevYear < 1860:
-			fifties.append(year)
-		elif prevYear > 1859 and prevYear < 1870:
-			sixties.append(year)
-		elif prevYear > 1869 and prevYear < 1880:
-			seventies.append(year)
-		letters = []
+# letNum = 1
+# lineNum = 1
 
-	prevYear = currYear
+# for file in dirList:
+# 	doc = docx.Document(file)
+# 	print("\n" + file + ":")
+# 	for i in doc.paragraphs:
+# 		if str(letNum) + ". " in str(i.text):
+# 			temp = str(i.text).split('. ', 1)[1].split(" to ")
+# 			authors.append(temp[0])
+# 			addressees.append(temp[1])
+# 			contents.append("")
+# 			# print(str(i.text))
+# 			# print(str(letNum) + " " + str(i.text))
+# 			letNum = letNum + 1
+# 			lineNum = 2
+# 		elif letNum != 1:
+# 			if bool(re.findall("‘[0-9][0-9]", str(i.text)) or bool(re.findall("18[0-9][0-9]", str(i.text)))):
+# 				if "Chelsea," in str(i.text) or "Lucerne," in str(i.text) or "Carlyle to Ruskin," in str(i.text):
+# 					dates.append(str(i.text).split(", ", 1)[1])
+# 				else:
+# 					dates.append(str(i.text))
+# 				# print(str(i.text) + "\n" + str(len(dates)) + "\t" + str(letNum-1))
+# 				lineNum = 1
+# 			else:
+# 				contents[letNum-2] += str(i.text) + '\n'
 
-	letter = {
-		'date' : dates[letNum-1],
-		'author' : authors[letNum-1],
-		'addressee' : addressees[letNum-1],
-		'letter_num' : letNum,
-		'content' : content
-	}
-	# print(str(currYear) + "\t" + str(letNum))
-	letters.append(letter)
+# #50s, 60s, 70s
 
-	letNum += 1
+# letNum = 1
+# currYear = 0
+# prevYear = currYear
+# fifties = []
+# sixties = []
+# seventies = []
+# letters = []
 
-year = {
-	 'year' : prevYear,
-	 'letters' : letters
-	}
-if prevYear > 1849 and prevYear < 1860:
-	fifties.append(year)
-elif prevYear > 1859 and prevYear < 1870:
-	sixties.append(year)
-elif prevYear > 1869 and prevYear < 1880:
-	seventies.append(year)
+# for content in contents:
+# 	if "‘" in dates[letNum-1]:
+# 		currYear = int("18" + re.findall("‘[0-9][0-9]", dates[letNum-1])[0].split("‘")[1])
+# 	else:
+# 		currYear = int(re.findall("18[0-9][0-9]", dates[letNum-1])[0])
 
-decade = {
-	'_id' : "1850s",
-	'years' : fifties
-}
-result = db.letters.insert_one(decade)
-print('Created 1 of 3 as {1}'.format(1,result.inserted_id))
+# 	if (prevYear < currYear and prevYear != 0):
+# 		year = {
+# 			 'year' : prevYear,
+# 			 'letters' : letters
+# 			}
+# 		if prevYear > 1849 and prevYear < 1860:
+# 			fifties.append(year)
+# 		elif prevYear > 1859 and prevYear < 1870:
+# 			sixties.append(year)
+# 		elif prevYear > 1869 and prevYear < 1880:
+# 			seventies.append(year)
+# 		letters = []
 
-decade = {
-	'_id' : "1860s",
-	'years' : sixties
-}
-result = db.letters.insert_one(decade)
-print('Created 2 of 3 as {1}'.format(2,result.inserted_id))
+# 	prevYear = currYear
 
-decade = {
-	'_id' : "1870s",
-	'years' : seventies
-}
-result = db.letters.insert_one(decade)
-print('Created 3 of 3 as {1}'.format(3,result.inserted_id))
+# 	letter = {
+# 		'date' : dates[letNum-1],
+# 		'author' : authors[letNum-1],
+# 		'addressee' : addressees[letNum-1],
+# 		'letter_num' : letNum,
+# 		'content' : content
+# 	}
+# 	# print(str(currYear) + "\t" + str(letNum))
+# 	letters.append(letter)
+
+# 	letNum += 1
+
+# year = {
+# 	 'year' : prevYear,
+# 	 'letters' : letters
+# 	}
+# if prevYear > 1849 and prevYear < 1860:
+# 	fifties.append(year)
+# elif prevYear > 1859 and prevYear < 1870:
+# 	sixties.append(year)
+# elif prevYear > 1869 and prevYear < 1880:
+# 	seventies.append(year)
+
+# decade = {
+# 	'_id' : "1850s",
+# 	'years' : fifties
+# }
+# result = db.letters.insert_one(decade)
+# print('Created 1 of 3 as {1}'.format(1,result.inserted_id))
+
+# decade = {
+# 	'_id' : "1860s",
+# 	'years' : sixties
+# }
+# result = db.letters.insert_one(decade)
+# print('Created 2 of 3 as {1}'.format(2,result.inserted_id))
+
+# decade = {
+# 	'_id' : "1870s",
+# 	'years' : seventies
+# }
+# result = db.letters.insert_one(decade)
+# print('Created 3 of 3 as {1}'.format(3,result.inserted_id))
