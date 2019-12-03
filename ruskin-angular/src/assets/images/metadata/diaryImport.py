@@ -32,7 +32,7 @@ for row in range(1,diaryMD.nrows):
 		'description' : diaryMD.cell_value(row,3),
 		'extent' : diaryMD.cell_value(row,4),
 		'digital_collection' : diaryMD.cell_value(row,5),
-		'website' : diaryMD.cell_value(row,6),
+		# 'website' : diaryMD.cell_value(row,6),
 		'contributing_institution' : diaryMD.cell_value(row,7),
 		# 'rights' : diaryMD.cell_value(row,8),
 		'language' : diaryMD.cell_value(row,9),
