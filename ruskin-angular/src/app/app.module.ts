@@ -28,6 +28,7 @@ import * as bootstrap from 'bootstrap';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatExpansionModule } from '@angular/material';
+import { ActivitiesComponent } from './activities/activities.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'browse-by-date', component: BrowseByDateComponent},
   { path: 'browse-by-hand', component: BrowseByHandComponent},
   { path: 'about', component: AboutComponent},
+  { path: 'activities', component: ActivitiesComponent},
   { path: 'page-view/:id/:pageNum', component: PageViewComponent},
   { path: 'search-results/:search', component: SearchResultsComponent},
 ];
@@ -54,6 +56,7 @@ const routes: Routes = [
     SearchResultsComponent,
     DiaryLinksComponent,
     TempLetterComponent,
+    ActivitiesComponent,
   ],
   imports: [
     BrowserModule,
