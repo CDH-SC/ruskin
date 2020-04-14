@@ -36,7 +36,7 @@ xsltTransformer = etree.XSLT(xsltDoc)
 def xsltFormat(inputString):
     """ Apply XSLT styling to input XML """
 
-    sourceDoc = etree.fromstring(inputString)
+    sourceDoc = etree.fromstring('<div>%s</div>' % inputString)
     formattedDoc = str(xsltTransformer(sourceDoc))
 
     return formattedDoc
@@ -50,13 +50,13 @@ def letterUpload(array):
 
     for l in array:
         xml_id = l.bibl['xml:id']
-        docDate = l.docDate['value']
-        humanDate = ''.join(l.docDate.strings)
+        docDate = l.docdate['value']
+        humanDate = ''.join(l.docdate.strings)
 
         letterNumber = l.select('idno[type="letternumber"]')[0].string
 
-        if l.docAuthor:
-            docAuthor = ' '.join(l.docAuthor.stripped_strings)
+        if l.docauthor:
+            docAuthor = ' '.join(l.docauthor.stripped_strings)
         else: docAuthor = None
 
         if l.select('person[type="sender"]'):
@@ -67,11 +67,11 @@ def letterUpload(array):
             recipient = l.select('person[type="addressee"]')[0].string
         else: recipient = None
 
-        if l.sourceNote.contents:
-            sourceNote = xsltFormat(''.join(map(str, l.sourceNote.contents)))
+        if l.sourcenote:
+            sourceNote = xsltFormat(''.join(map(str, l.sourcenote.contents)))
         else: sourceNote = None
 
-        docBody = xsltFormat(str(l.docBody))
+        docBody = xsltFormat(str(l.docbody))
         
         """ There are currently no footnotes, uncomment this block if they are added later
         footnotesArray = l.find_all('note')
@@ -83,6 +83,7 @@ def letterUpload(array):
         letter = {
             'xml_id': xml_id,
             'docDate': docDate,
+            'humanDate': humanDate,
             'letterNumber': letterNumber,
             'docAuthor': docAuthor,
             'sender': sender,
@@ -94,30 +95,33 @@ def letterUpload(array):
         }
         letterArray.append(letter)
 
-        try:
-            db.letters.update_many(
-                {'_id': 'letter'},
-                {'$set': {'letters': letterArray}}, upsert=True
-            )
-            print('letters successfully uploaded\n')
-        except Exception as e: print(e)
+    try:
+        db.letters.update_many(
+            {'_id': 'letter'},
+            {'$set': {'letters': letterArray}}, upsert=True
+        )
+        print('letters successfully uploaded\n')
+    except Exception as e: print(e)
 
 
-    def main():
-        # loop through XML files in directory
-        dirList = os.listdir(directory)
-        dirList.sort()
-        for i, filename in enumerate(dirList, start=1):
-            if filename.endswith('.xml'):
-                file = open(os.path.join(directory, filename), 'r')
-                content = file.read()
-                bs_content = bs(content, 'xml')
+def main():
+    # loop through XML files in directory
+    dirList = os.listdir(directory)
+    dirList.sort()
+    for i, filename in enumerate(dirList, start=1):
+        if filename.endswith('.xml'):
+            file = open(os.path.join(directory, filename), 'r')
+            content = file.read()
+            bs_content = bs(content, 'lxml')
 
-                # get all letters in XML file
-                letterSections = bs_content.find_all('div2')
-                if letterSections[0]:
-                    letters = letterSections[0].find_all('div3')
-                    letterUpload(letters, 'letters', volumeID)
+            # get all letters in XML file
+            letters = bs_content.find_all('div3')
+            letterUpload(letters)
+
+            # letterSections = bs_content.find_all('div2')
+            # if letterSections[0]:
+            #     letters = letterSections[0].find_all('div3')
+            #     letterUpload(letters, 'letters', volumeID)
 
 
 if __name__ == '__main__':
