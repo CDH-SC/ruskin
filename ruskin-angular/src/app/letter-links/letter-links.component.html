@@ -1,16 +1,15 @@
-<div class="d-flex flex-column justify-content-start align-items-start w-100" *ngIf="letter" id="letterLinksContainer">
+<div class="d-flex flex-column justify-content-start align-items-start w-100" *ngIf="letters" id="letterLinksContainer">
   <h2>Letters</h2>
-  <li *ngFor="let d of letter">
     <mat-accordion>
       <mat-expansion-panel>
 
         <mat-expansion-panel-header>
           <mat-panel-title>
-            <a>Letters from the {{ d._id }}</a>
+            <a>Letters from the 1850s</a>
           </mat-panel-title>
         </mat-expansion-panel-header>
 
-        <li *ngFor="let y of d.years">
+        <!-- <li *ngFor="let y of d.years">
           <mat-expansion-panel>
 
             <mat-expansion-panel-header>
@@ -20,11 +19,11 @@
             </mat-expansion-panel-header>
 
             <li *ngFor="let l of y.letters">
-              <a id={{l.letter_num}} routerLink="/page-view/letters/{{ l.letter_num }}" routerLinkActive="active" >{{ l.date }}</a>
+              <a id={{l.letter_num}} routerLink="/page-view/letters/{{ l.letter_id }}" routerLinkActive="active" >{{ l.docDateString }}</a>
             </li>
           </mat-expansion-panel>
-        </li>
+        </li> -->
+
       </mat-expansion-panel>
     </mat-accordion>
-  </li>
 </div>

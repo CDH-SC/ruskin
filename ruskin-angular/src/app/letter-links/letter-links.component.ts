@@ -13,13 +13,27 @@ import 'rxjs/add/operator/map';
 })
 export class LetterLinksComponent implements OnInit {
 
-  letter: [Letter];
+  letters: [Letter];
+  fifties: [Letter];
+  sixies: [Letter];
+  seventies: [Letter];
+  years: [[Number],[Letter]];
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.http.get('/api/letters').subscribe(data => {
-      this.letter = data['data'];
+      this.letters = data['data'];
+      for(var i = 0; i < this.letters.length; i++) {
+        var year = Number(this.letters[i]['docDate'].substring(0,4));
+        if(year > 1849 && year < 1860) {
+          console.log(year);
+        } else if(year > 1859 && year < 1870) {
+          console.log(year);
+        } else if(year > 1869 && year < 1880) {
+          console.log(year);
+        }
+      }
     });
   }
 

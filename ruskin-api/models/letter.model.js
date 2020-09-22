@@ -5,17 +5,15 @@ var mongoosePaginate = require('mongoose-paginate')
 var Schema = mongoose.Schema;
 //Define schema
 var letterSchema = new Schema({
-  _id:  String,
-  years: [{
-  	year: Number,
-  	letters: [{
-  		date: String,
-	    author: String,
-	    addressee: String,
-	    letter_num: Number,
-	    content: String
-  	}]
-  }],
+  _id:  Number,
+	xml_id: String,
+  docDate: String,
+  docDateString: String,
+  docAuthor: String,
+  sender: String,
+  addressee: String,
+  sourceNote: String,
+  docBody: String
 }, { _id: false });
 letterSchema.index({'$**':'text'});
 

@@ -19,7 +19,7 @@ export class PageViewComponent implements OnInit {
   diary: Diary;
 
   // Define letter object
-  // letter: Letter;
+  letter: Letter;
 
   // array of all items to be paged
   private allItems: any[];
@@ -56,9 +56,10 @@ export class PageViewComponent implements OnInit {
 
     // Pass diary/letter id through api and subscribe to resulting data
     if (this.router.url.includes('letters')) {
-      // this.http.get('/api/letters/' + id).subscribe(data => {
-      // this.letter = data['data'];
-      // });
+      this.http.get('/api/letters/' + pageNum).subscribe(data => {
+      this.letter = data['data'];
+      console.log(this.letter);
+      });
 
     } else {
       this.http.get('/api/diaries/' + id).subscribe(data => {
