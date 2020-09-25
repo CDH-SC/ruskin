@@ -68,24 +68,6 @@ def letterUpload(xml_ids,dates,id_nums,firstNames,lastNames,authors,
 		HTML_sourcenotes = str(XMLtoHTML(rawSourcenotes[i]))
 		HTML_doc = str(XMLtoHTML(rawDoc[i]))
 
-		#Sort letter into appropriate year and decade
-		# currYear = int(date_num[0:4])
-
-		# if (prevYear < currYear and prevYear != 0):
-		# 	year = {
-		# 			 'year' : prevYear,
-		# 			 'letters' : letters
-		# 			}
-		# 	if prevYear > 1849 and prevYear < 1860:
-		# 		fifties.append(year)
-		# 	elif prevYear > 1859 and prevYear < 1870:
-		# 		sixties.append(year)
-		# 	elif prevYear > 1869 and prevYear < 1880:
-		# 		seventies.append(year)
-		# 	letters = []
-
-		# prevYear = currYear
-
 		letter = {
 			'_id': int(letter_id),
 			'xml_id': xml_id,
@@ -98,41 +80,6 @@ def letterUpload(xml_ids,dates,id_nums,firstNames,lastNames,authors,
 			'docBody': HTML_doc
 		}
 		db.letters.insert_one(letter)
-
-		#last letter
-		# if i == len(xml_ids) - 1:
-		# 	year = {
-		# 	 'year' : prevYear,
-		# 	 'letters' : letters
-		# 	}
-		# 	if prevYear > 1849 and prevYear < 1860:
-		# 		fifties.append(year)
-		# 	elif prevYear > 1859 and prevYear < 1870:
-		# 		sixties.append(year)
-		# 	elif prevYear > 1869 and prevYear < 1880:
-		# 		seventies.append(year)
-
-		# 	decade = {
-		# 		'_id' : "1850s",
-		# 		'years' : fifties
-		# 	}
-		# 	result = db.letters.insert_one(decade)
-		# 	print('Created 1 of 3 as {1}'.format(1,result.inserted_id))
-
-		# 	decade = {
-		# 		'_id' : "1860s",
-		# 		'years' : sixties
-		# 	}
-		# 	result = db.letters.insert_one(decade)
-		# 	print('Created 2 of 3 as {1}'.format(2,result.inserted_id))
-
-		# 	decade = {
-		# 		'_id' : "1870s",
-		# 		'years' : seventies
-		# 	}
-		# 	result = db.letters.insert_one(decade)
-		# 	print('Created 3 of 3 as {1}'.format(3,result.inserted_id))
-
 
 def main():
 	filename = 'JRU-TC_XML-final1.xml'

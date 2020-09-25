@@ -58,7 +58,6 @@ export class PageViewComponent implements OnInit {
     if (this.router.url.includes('letters')) {
       this.http.get('/api/letters/' + pageNum).subscribe(data => {
       this.letter = data['data'];
-      console.log(this.letter);
       });
 
     } else {

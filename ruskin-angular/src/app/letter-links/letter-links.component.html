@@ -2,28 +2,66 @@
   <h2>Letters</h2>
     <mat-accordion>
       <mat-expansion-panel>
-
         <mat-expansion-panel-header>
           <mat-panel-title>
             <a>Letters from the 1850s</a>
           </mat-panel-title>
         </mat-expansion-panel-header>
-
-        <!-- <li *ngFor="let y of d.years">
+        <li *ngFor="let y of fifties[0]">
           <mat-expansion-panel>
-
             <mat-expansion-panel-header>
               <mat-panel-title>
-                <a>{{ y.year }}</a>
+                <a>{{ y }}</a>
               </mat-panel-title>
             </mat-expansion-panel-header>
 
-            <li *ngFor="let l of y.letters">
-              <a id={{l.letter_num}} routerLink="/page-view/letters/{{ l.letter_id }}" routerLinkActive="active" >{{ l.docDateString }}</a>
+            <li *ngFor="let l of fifties[1][fifties[0].indexOf(y)]">
+              <a id={{l._id}} routerLink="/page-view/letters/{{ l._id }}" routerLinkActive="active" >{{ l.docDateString }}</a>
             </li>
           </mat-expansion-panel>
-        </li> -->
-
+        </li>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <a>Letters from the 1860s</a>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <li *ngFor="let y of sixties[0]">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <a>{{ y }}</a>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <li *ngFor="let l of sixties[1][sixties[0].indexOf(y)]">
+              <a id={{l._id}} routerLink="/page-view/letters/{{ l._id }}" routerLinkActive="active" >{{ l.docDateString }}</a>
+            </li>
+          </mat-expansion-panel>
+        </li>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <a>Letters from the 1870s</a>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <li *ngFor="let y of seventies[0]">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <a>{{ y }}</a>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <li *ngFor="let l of seventies[1][seventies[0].indexOf(y)]">
+              <a id={{l._id}} routerLink="/page-view/letters/{{ l._id }}" routerLinkActive="active" >{{ l.docDateString }}</a>
+            </li>
+          </mat-expansion-panel>
+        </li>
       </mat-expansion-panel>
     </mat-accordion>
 </div>
