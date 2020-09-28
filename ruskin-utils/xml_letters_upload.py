@@ -49,13 +49,6 @@ def letterUpload(xml_ids,dates,id_nums,firstNames,lastNames,authors,
 				senders,addressees,rawSourcenotes,rawDoc):
 	"""Takes data parsed in main, sorts it into
 	the appropriate structure, and uploads it to local db."""
-	fifties = []
-	sixties = []
-	seventies = []
-	letters = []
-	prevYear = 0
-	currYear = 0
-
 	for i in range(len(xml_ids)):
 		#Get letter field values
 		xml_id = xml_ids[i]
