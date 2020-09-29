@@ -33,15 +33,46 @@ db = client.ruskin
 
 def XMLtoHTML(xml_input):
 	"""Converts XML tags in input to HTML compatible tags."""
-	i = 0
-	bound = len(xml_input.find_all('hi'))
-	while i < bound:
-		xmlTag = xml_input.find('hi')
-		identifier = xmlTag.text
-		xmlString = str(xml_input.find('hi')).replace('<hi','<i').replace('hi>','i>')
-		htmlTag = bs(xmlString,'lxml')
-		xml_input.find('hi', text=identifier).replaceWith(htmlTag.i)
-		i += 1
+	notDone = True
+	while notDone:
+		if len(xml_input.find_all('lb')) > 0:
+			xmlTag = xml_input.find('lb')
+			xmlString = str(xml_input.find('lb')).replace('<lb>','<br>').replace('</lb>','')
+			htmlTag = bs(xmlString,'lxml')
+			xml_input.find('lb').replaceWith(htmlTag.br)
+		if len(xml_input.find_all('hi')) > 0:
+			xmlTag = xml_input.find('hi')
+			identifier = xmlTag.text
+			xmlString = str(xml_input.find('hi')).replace('<hi','<i').replace('hi>','i>')
+			htmlTag = bs(xmlString,'lxml')
+			xml_input.find('hi', text=identifier).replaceWith(htmlTag.i)
+		if len(xml_input.find_all('closer')) > 0:
+			xmlTag = xml_input.find('closer')
+			xmlString = str(xml_input.find('closer')).replace('<closer','<p id="closer"').replace('closer>','p>')
+			htmlTag = bs(xmlString,'lxml')
+			xml_input.find('closer').replaceWith(htmlTag.p)
+		if len(xml_input.find_all('dateline')) > 0:
+			xmlTag = xml_input.find('dateline')
+			xmlString = str(xml_input.find('dateline')).replace('<dateline','<p id="dateline"').replace('dateline>','p>')
+			htmlTag = bs(xmlString,'lxml')
+			xml_input.find('dateline').replaceWith(htmlTag.p)
+		if len(xml_input.find_all('salute')) > 0:
+			xmlTag = xml_input.find('salute')
+			xmlString = str(xml_input.find('salute')).replace('<salute','<p id="salute"').replace('salute>','p>')
+			htmlTag = bs(xmlString,'lxml')
+			xml_input.find('salute').replaceWith(htmlTag.p)
+		if len(xml_input.find_all('signed')) > 0:
+			xmlTag = xml_input.find('signed')
+			identifier = xmlTag.text
+			xmlString = str(xml_input.find('signed')).replace('<signed','<p id="signed"').replace('signed>','p>')
+			htmlTag = bs(xmlString,'lxml')
+			xml_input.find('signed', text=identifier).replaceWith(htmlTag.p)
+		if (len(xml_input.find_all('hi')) <= 0 and
+			len(xml_input.find_all('closer')) <= 0 and
+			len(xml_input.find_all('dateline')) <= 0 and
+			len(xml_input.find_all('salute')) <= 0 and
+			len(xml_input.find_all('signed')) <= 0):
+			notDone = False
 
 	return xml_input
 
@@ -73,8 +104,10 @@ def letterUpload(xml_ids,dates,id_nums,firstNames,lastNames,authors,
 			'docBody': HTML_doc
 		}
 		db.letters.insert_one(letter)
+	print(str(len(xml_ids)) + ' Letters successfully uploaded')
 
 def main():
+	#Opens xml file and gets all major parts of the letters
 	filename = 'JRU-TC_XML-final1.xml'
 	file = open(os.path.join(directory, filename), 'r')
 	content = file.read()
