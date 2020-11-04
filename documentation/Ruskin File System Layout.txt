@@ -1,0 +1,72 @@
+Ruskin File System Layout (4 Nov 2020):
+
+/documentation:		- Files containing ruskin documentation
+/ruskin-angular:
+	/documentation 	- (???) I have never modified files in this folder
+	/e2e			- (Needed to function,???) I have never modified files in this folder
+	/spec			- (Needed to function,???) I have never modified files in this folder
+	/src:
+		/app:
+			/_shared 			- ??? Misc Angular files for Mongo data, pager, search services
+			/about				- Component for the Ruskin About page
+			/activities			- (Currently Unfinished) Component for the Ruskin Activities
+			/browse-by-date		- (Michael Field Leftover)
+			/browse-by-hand		- (Michael Field Leftover)
+			/diary-links		- Component for the list of diaries on the home page
+			/header 			- Component for the site header (Ruskin image and "The Ruskin Archives")
+			/home				- Component for the Ruskin Home page
+			/letter-links		- Component for the list of letters on the home page
+			/nav-bar 			- Component for the links to other pages (Namely "Home", "About", and "Activities")
+			/page-view			- Component for displaying diary and letter pages
+			/search-bar 		- (Currently Unfinished) Component for the search bar
+			/search-results 	- (Currently Unfinished) Component for the search results page
+			/temp-letter 		- (No Longer Used) Used as an example formatted letter before XML was given
+			app.component.*		- The base Angular app component that allows all other components to be loaded
+			app.module.ts 		- Keeps track of all Angular modules and custom components used in the project
+		/assets:
+			RSKHeader.png		- Header Image at the top of the site
+			TempRSKLogo.png		- The current icon shown on the browser tab for Ruskin.
+			WebBackground.jpg	- The blue paper-like texture in the background of Ruskin.
+			/images:
+				/RF_MS_[1-6,8]	- Folders containing the images for Diaries 1-6 and 8
+				/letters		- Contains the Ruskin letters in docx format with old letter upload script
+				/metadata		- Contains the Ruskin Diary metadata and diary upload script
+				default.png		- Image used for blank diary pages
+		misc_files	- Used for website skeleton. Every component is put on top of index.html
+	misc_files: 	- ??? Angular configuration files
+/ruskin-api:
+	/bin 					- Containes www file used for running the API itself
+	/controllers 			- Contains controllers that instruct the API how to interact with different parts of the database
+	/models 				- Contains models of how database information is structured; Used by services
+	/public/stylesheets		- (Needed to function, Michael Field Leftover)
+	/routes 				- Contains files used for routing information; allows components to have permanent URLs
+	/services 				- Contains services that Angular can call to do database operations; Used by controllers
+	/views 					- (Needed to function, Michael Field Leftover)
+	.env 				- Holds database connection IP
+	app.js 				- Sets up the API for Ruskin; the backend that retrieves from the database
+	package-lock.json 	- More details on the API dependencies
+	package.json		- List of dependencies for the API
+/ruskin-archive:
+	JRU-TC_XML-final1.xml 	- XML file containing all Ruskin letters
+	README.md 				- (Michael Field Leftover)
+/ruskin-database:
+	/dump/ruskin/:
+		diaries.* 	- Mongo backup for diary database data
+		letters.* 	- Mongo backup for letter database data
+	Dockerfile 			- Used for building Rusking with Docker
+	mongo.sh 			- Used by Dockerfile for mongodump
+	mongotextsearch.js 	- Used for basic text search in mongo
+/ruskin-utils:
+	imagedownload				- (Michael Field Leftover)
+	insert.js					- (Michael Field Leftover)
+	package-lock.json			- (Michael Field Leftover)
+	updated_volumeUpload.py		- (Michael Field Leftover)
+	volume_upload.py			- (Michael Field Leftover)
+	volume_upload_xHTML.py		- (Michael Field Leftover)
+	volume_upload_xml.py		- (No Longer Used) Initial attempt at XML Letter upload Script
+	xml_letters_upload.py		- Current upload script for the XML Ruskin Letters
+	xml_styling.xslt 			- (Currently Unused) Used with initial upload script
+.gitignore 			- List of files not to be reported when "git add ." is run
+Dockerfile			- Used to build production site
+README.md 			- Documentation on installing and building Ruskin
+docker-compose.yml	- Environment information used by Docker
