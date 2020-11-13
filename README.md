@@ -1,5 +1,5 @@
 # Ruskin
-Live Version: http://ruskin.dev-cdh.org/home
+Live Version: https://ruskin.dev.cdhsc.org/home
 ### Getting Started
 ---
 #### Prerequisites
