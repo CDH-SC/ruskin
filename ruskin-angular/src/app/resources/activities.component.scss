@@ -1,0 +1,57 @@
+/* Formatting for the About Page for John Ruskin */
+h1 {
+    color: #e62e00;
+  }
+  
+  h4 {
+    font-weight: bold;
+    color: #000000;
+  }
+  
+  hr {
+    border-color: #808080;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  .accordion {
+    background-color: #47525e;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 18px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.4s;
+  }
+  
+  .accordion:after {
+    content: 'View More';
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active, .accordion:hover {
+    background-color: white;
+    color: #e62e00;
+  }
+  
+  .active:after {
+    content: "View Less";
+  }
+  
+  .panel {
+    padding: 0 18px;
+    background-color: #f1f4f8;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+  }
+  
