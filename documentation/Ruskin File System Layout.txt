@@ -9,7 +9,7 @@ Ruskin File System Layout (4 Nov 2020):
 		/app:
 			/_shared 			- ??? Misc Angular files for Mongo data, pager, search services
 			/about				- Component for the Ruskin About page
-			/activities			- (Currently Unfinished) Component for the Ruskin Activities
+			/resources			- (Currently Unfinished) Component for the Ruskin Resources
 			/browse-by-date		- (Michael Field Leftover)
 			/browse-by-hand		- (Michael Field Leftover)
 			/diary-links		- Component for the list of diaries on the home page
