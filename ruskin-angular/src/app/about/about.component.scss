@@ -28,11 +28,11 @@ ul {
   border-radius: 10px;
   outline: none;
   transition: 0.4s;
+  font-size: 17px;
 }
 
 .accordion:after {
   content: 'View More';
-  font-size: 13px;
   color: #777;
   float: right;
   margin-left: 5px;
@@ -53,4 +53,5 @@ ul {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease-out;
+  font-size: 15px;
 }
