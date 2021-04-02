@@ -41,6 +41,12 @@ export class PageViewComponent implements OnInit {
   // Default Transcription Status
   transcriptionStatus = '**';
 
+  hasPrevLetter:boolean;
+  hasNextLetter:boolean;
+
+  prevletterid:number;
+  nextletterid:number;
+
   constructor(
     private http: HttpClient,
     private pagerService: PagerService,
@@ -52,11 +58,11 @@ export class PageViewComponent implements OnInit {
   ngOnInit() {
     // Get diary/letter id + current page number from router
     const id = this.route.snapshot.paramMap.get('id');
-    const pageNum = this.route.snapshot.paramMap.get('pageNum');
+    this.pageNum = Number(this.route.snapshot.paramMap.get('pageNum'));
 
     // Pass diary/letter id through api and subscribe to resulting data
     if (this.router.url.includes('letters')) {
-      this.http.get('/api/letters/' + pageNum).subscribe(data => {
+      this.http.get('/api/letters/' + this.pageNum).subscribe(data => {
       this.letter = data['data'];
       });
 
@@ -64,11 +70,31 @@ export class PageViewComponent implements OnInit {
       this.http.get('/api/diaries/' + id).subscribe(data => {
       this.diary = data['data'];
       this.allItems = data['data']['page'];
-      
+
       // initialize page to pageNum from router
-      this.setPage(+pageNum);
+      this.setPage(+this.pageNum);
       });
     }
+  if (this.pageNum > 0) {
+      this.hasPrevLetter = true;
+      this.prevletterid = this.pageNum-1;
+      console.log(this.prevletterid);
+   }
+   if (this.pageNum < 151) {
+    this.hasNextLetter = true;
+    this.nextletterid = this.pageNum+1;
+    console.log(this.nextletterid);
+   }
+  }
+
+  letterCyclePrev() {
+    console.log("go to prev");
+    this.router.navigate(['page-view/letters/',this.prevletterid]);
+  }
+
+  letterCycleNext() {
+    console.log("go to next");
+  //  this.router.navigateByUrl(['/page-view/letters',this.nextletterid]);
   }
 
   setPage(page: number) {
