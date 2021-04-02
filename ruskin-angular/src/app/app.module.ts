@@ -30,6 +30,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material';
 import { ResourcesComponent } from './resources/resources.component';
 
+import { NgxImageZoomModule } from 'ngx-image-zoom';
+
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
@@ -66,7 +68,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     OrderModule,
     NoopAnimationsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    NgxImageZoomModule
   ],
   providers: [
     NgbActiveModal,

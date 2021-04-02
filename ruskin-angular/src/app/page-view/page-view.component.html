@@ -52,7 +52,8 @@
   <div class="row justify-content-center">
     <div class="col-7 col-xl-5" *ngIf="router.url.match('[0-9]/[0-9]')">
       <div class="viewer-box-img">
-        <img src="{{ diary.notebook_url }}{{ diary.page[page-1].image }}" onError="this.src='assets/images/default.png'">
+        <lib-ngx-image-zoom [thumbImage]=diary.notebook_url+diary.page[page-1].image [zoomMode]="'click'" [enableLens]="true" [lensWidth]="200" [lensHeight]="200" [circularLens]="true">
+        </lib-ngx-image-zoom>
       </div>
     </div>
     <div class="col-7 col-xl-5" *ngIf="router.url.includes('letters')">
@@ -144,6 +145,10 @@
   <!-- Viewer Boxes for Manuscript/Transcription -->
   <div class="row justify-content-center">
     <div class="col-7 col-xl-5">
+      <div>
+        <a class="letter-navigation" id="prev" (click)="letterCyclePrev()">PREVIOUS</a>
+        <a class="letter-navigation" id="next" (click)="letterCycleNext()">NEXT</a>
+      </div>
       <div class="letter-box-transcript">
         <div [innerHTML]="letter.docBody" id="transcription"></div>
       </div>

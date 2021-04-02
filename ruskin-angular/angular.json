@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "ruskin"
+  "defaultProject": "ruskin",
+  "cli": {
+    "analytics": false
+  }
 }
