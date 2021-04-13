@@ -146,11 +146,11 @@
   <div class="row justify-content-center">
     <div class="col-7 col-xl-5">
       <div>
-        <a class="letter-navigation" id="prev" (click)="letterCyclePrev()">PREVIOUS</a>
-        <a class="letter-navigation" id="next" (click)="letterCycleNext()">NEXT</a>
+        <a class="letter-navigation" id="prev" (click)="setLetter(pager.currentPage - 1)">PREVIOUS</a>
+        <a class="letter-navigation" id="next" (click)="setLetter(pager.currentPage + 1)">NEXT</a>
       </div>
       <div class="letter-box-transcript">
-        <div [innerHTML]="letter.docBody" id="transcription"></div>
+        <div [innerHTML]="content" id="transcription"></div>
       </div>
     </div>
   </div>
