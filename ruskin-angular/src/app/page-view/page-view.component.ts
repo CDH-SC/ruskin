@@ -20,6 +20,7 @@ export class PageViewComponent implements OnInit {
 
   // Define letter object
   letter: Letter;
+  letters: [Letter];
 
   // array of all items to be paged
   private allItems: any[];
@@ -62,8 +63,9 @@ export class PageViewComponent implements OnInit {
 
     // Pass diary/letter id through api and subscribe to resulting data
     if (this.router.url.includes('letters')) {
-      this.http.get('/api/letters/' + this.pageNum).subscribe(data => {
-      this.letter = data['data'];
+      this.http.get('/api/letters/').subscribe(data => {
+      this.letters = data['data'];
+      this.setLetter(this.pageNum);
       });
 
     } else {
@@ -72,29 +74,9 @@ export class PageViewComponent implements OnInit {
       this.allItems = data['data']['page'];
 
       // initialize page to pageNum from router
-      this.setPage(+this.pageNum);
+      this.setPage(this.pageNum);
       });
     }
-  if (this.pageNum > 0) {
-      this.hasPrevLetter = true;
-      this.prevletterid = this.pageNum-1;
-      console.log(this.prevletterid);
-   }
-   if (this.pageNum < 151) {
-    this.hasNextLetter = true;
-    this.nextletterid = this.pageNum+1;
-    console.log(this.nextletterid);
-   }
-  }
-
-  letterCyclePrev() {
-    console.log("go to prev");
-    this.router.navigate(['page-view/letters/',this.prevletterid]);
-  }
-
-  letterCycleNext() {
-    console.log("go to next");
-  //  this.router.navigateByUrl(['/page-view/letters',this.nextletterid]);
   }
 
   setPage(page: number) {
@@ -116,15 +98,49 @@ export class PageViewComponent implements OnInit {
       // console.log(this.diary.notebook_url + this.diary.page[page-1].image);
   }
 
-  jumpToFolio(folioValue) {
-    let i;
-    for (i = 0; i < this.allItems.length; i++) {
-      console.log(this.allItems[i].folio_num);
-      if (folioValue === this.allItems[i].folio_num) {
-        this.setPage(i + 1);
-        break;
-      }
+  setLetter(letterId: number) {
+    if (letterId > 1) {
+        this.hasPrevLetter = true;
+        this.prevletterid = letterId-1;
+        console.log(this.hasPrevLetter);
+     }
+     else {
+       this.hasPrevLetter = false;
+     }
+     if (letterId < 151) {
+      this.hasNextLetter = true;
+      this.nextletterid = letterId+1;
+     }
+     else {
+       this.hasNextLetter = false;
+     }
+
+    if (letterId < 1 || letterId > this.pager.totalPages) {
+      return;
     }
+
+    // get pager object from service
+    this.pager = this.pagerService.getPager(this.letters.length, letterId);
+    this.letter = this.letters[this.pager.currentPage-1];
+    this.content = this.sanitizer.bypassSecurityTrustHtml(this.letters[letterId-1].docBody);
+
+    this.router.navigate(['page-view/letters/', letterId]);
+    console.log(this.pager.currentPage)
+  }
+
+  jumpToFolio(folioValue) {
+    // if(folioValue < this.allItems.length) {
+    //   this.setPage(folioValue);
+    // }
+
+    // let i;
+    // for (i = 0; i < this.allItems.length; i++) {
+    //   console.log(this.allItems[i].folio_num);
+    //   if (folioValue === this.allItems[i].folio_num) {
+    //     this.setPage(i + 1);
+    //     break;
+    //   }
+    // }
   }
 
   goToGroup(group) {
