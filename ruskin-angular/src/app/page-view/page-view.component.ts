@@ -118,12 +118,12 @@ export class PageViewComponent implements OnInit {
     if (letterId < 1 || letterId > this.pager.totalPages) {
       return;
     }
-
+    
     // get pager object from service
     this.pager = this.pagerService.getPager(this.letters.length, letterId);
     this.letter = this.letters[this.pager.currentPage-1];
     this.content = this.sanitizer.bypassSecurityTrustHtml(this.letters[letterId-1].docBody);
-
+    
     this.router.navigate(['page-view/letters/', letterId]);
     console.log(this.pager.currentPage)
   }
