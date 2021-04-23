@@ -77,26 +77,6 @@ export class PageViewComponent implements OnInit {
       this.setPage(this.pageNum);
       });
     }
-  if (this.pageNum > 0) {
-      this.hasPrevLetter = true;
-      this.prevletterid = this.pageNum-1;
-      console.log(this.prevletterid);
-   }
-   if (this.pageNum < 151) {
-    this.hasNextLetter = true;
-    this.nextletterid = this.pageNum+1;
-    console.log(this.nextletterid);
-   }
-  }
-
-  letterCyclePrev() {
-    console.log("go to prev");
-    this.router.navigate(['page-view/letters/',this.prevletterid]);
-  }
-
-  letterCycleNext() {
-    console.log("go to next");
-  //  this.router.navigateByUrl(['/page-view/letters',this.nextletterid]);
   }
 
   setPage(page: number) {
@@ -119,6 +99,22 @@ export class PageViewComponent implements OnInit {
   }
 
   setLetter(letterId: number) {
+    if (letterId > 1) {
+        this.hasPrevLetter = true;
+        this.prevletterid = letterId-1;
+        console.log(this.hasPrevLetter);
+     }
+     else {
+       this.hasPrevLetter = false;
+     }
+     if (letterId < 151) {
+      this.hasNextLetter = true;
+      this.nextletterid = letterId+1;
+     }
+     else {
+       this.hasNextLetter = false;
+     }
+
     if (letterId < 1 || letterId > this.pager.totalPages) {
       return;
     }
@@ -133,14 +129,18 @@ export class PageViewComponent implements OnInit {
   }
 
   jumpToFolio(folioValue) {
-    let i;
-    for (i = 0; i < this.allItems.length; i++) {
-      console.log(this.allItems[i].folio_num);
-      if (folioValue === this.allItems[i].folio_num) {
-        this.setPage(i + 1);
-        break;
-      }
-    }
+    // if(folioValue < this.allItems.length) {
+    //   this.setPage(folioValue);
+    // }
+
+    // let i;
+    // for (i = 0; i < this.allItems.length; i++) {
+    //   console.log(this.allItems[i].folio_num);
+    //   if (folioValue === this.allItems[i].folio_num) {
+    //     this.setPage(i + 1);
+    //     break;
+    //   }
+    // }
   }
 
   goToGroup(group) {
