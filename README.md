@@ -1,5 +1,6 @@
 # Ruskin
-Live Version: https://ruskin.dev.cdhsc.org/home
+Development Version: https://ruskin.dev.cdhsc.org/home
+Production Version: https://ruskindigitalarchive.cdhsc.org
 ### Getting Started
 ---
 #### Prerequisites
