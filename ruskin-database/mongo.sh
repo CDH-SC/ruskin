@@ -5,7 +5,7 @@
 # Description: This script is used by the MongoDB container to restore the dump directory
 
 # Execute restore in the background after 5 seconds
-sleep 5 && mongorestore /dump &
+sleep 5 && mongorestore --drop -d ruskin /dump/ruskin --batchSize=100 &
 
 # Keep mongo running the the foreground or the container will shut off
-docker-entrypoint.sh mongod
+docker-entrypoint.sh mongod 
