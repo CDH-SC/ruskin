@@ -1,27 +1,9 @@
 #headerContainer {
-  max-width: 1440px;
+  max-width: 2560px;
+  background-color: rgb(32, 85, 190);
 }
 
 #headerImg {
   width: 520px;
   height: 100px;
-}
-
-hr.flare {
-  height: 50px;
-  border-style: ridge;
-  border-color: rgba(111, 113, 117,0.5);
-  border-width: 2px 0 0 0;
-  border-radius: 45px;
-}
-
-hr.flare:before {
-  display: block;
-  content: "";
-  height: 50px;
-  margin-top: -51px;
-  border-style: ridge;
-  border-color: rgba(111, 113, 117,0.5);
-  border-width: 0 0 2px 0;
-  border-radius: 45px;
 }

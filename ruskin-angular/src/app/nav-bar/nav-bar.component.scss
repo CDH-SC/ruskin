@@ -1,10 +1,11 @@
-$primary-color: #47525e;
+$primary-color: rgb(32, 85, 190);
 $font-stack: Cardo, 'Times New Roman', Times, serif;
 $secondary-color: #f24c30;
 
 #nav {
   background: none;
   font-size: 18px !important;
+  color: $primary-color !important;
   font-weight: bold;
   max-width: 1440px;
   margin: 0;
