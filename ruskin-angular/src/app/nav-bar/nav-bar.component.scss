@@ -25,11 +25,11 @@ $secondary-color: #f24c30;
 }
 
 #diariesDropdownList {
-  background-color: #f8f1e5;
+  background-color: $primary-color;
 }
 
 #diariesDropdownList a:hover {
-  background-color: #f8f1e5;
+  background-color: $primary-color;
 }
 
 #lettersDropdown {
@@ -38,11 +38,11 @@ $secondary-color: #f24c30;
 }
 
 #lettersDropdownList {
-  background-color: #f8f1e5;
+  background-color: $primary-color;
 }
 
 #lettersDropdownList a:hover {
-  background-color: #f8f1e5;
+  background-color: $primary-color;
 }
 
 .dropdown-toggle::after {
