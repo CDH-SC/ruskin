@@ -4,13 +4,51 @@ $secondary-color: #f24c30;
 
 #nav {
   background: none;
-  font-size: 18px !important;
+  font-size: 24px !important;
   color: $primary-color !important;
-  font-weight: bold;
-  max-width: 1440px;
+  width: 100%;
   margin: 0;
+  border-bottom: 3px dotted $primary-color;
 }
 
 #nav a {
   text-decoration: none;
+}
+
+#navLinks {
+  width: 100%;
+}
+
+#diariesDropdown {
+  font-size: 24px !important;
+  color: $primary-color !important;
+}
+
+#diariesDropdownList {
+  background-color: #f8f1e5;
+}
+
+#diariesDropdownList a:hover {
+  background-color: #f8f1e5;
+}
+
+#lettersDropdown {
+  font-size: 24px !important;
+  color: $primary-color !important;
+}
+
+#lettersDropdownList {
+  background-color: #f8f1e5;
+}
+
+#lettersDropdownList a:hover {
+  background-color: #f8f1e5;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-item:visited {
+  background-color: #21596f;
 }
