@@ -21,7 +21,8 @@ for row in range(1,diaryMD.nrows):
 		currDiary = wb.sheet_by_index(row)
 		page = {
 			'title' : currDiary.cell_value(pRow,0),
-			'image' : currDiary.cell_value(pRow,15)
+			'image' : currDiary.cell_value(pRow,15),
+			'isARealPage': currDiary.cell_value(pRow,16)
 		}
 		pages.append(page)
 	# puts everything into a diary object
