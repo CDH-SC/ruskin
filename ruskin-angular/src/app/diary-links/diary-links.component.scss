@@ -1,20 +1,5 @@
-$primary-color: #47525e;
+$primary-color: rgb(32, 85, 190);
 $font-stack: Cardo, 'Times New Roman', Times, serif;
-$secondary-color: #f24c30;
-
-#diaryLinksContainer {
-  border: 5px solid $primary-color;
-  border-radius: 10px;
-}
-
-h2 {
-  color: white;
-  background-color: $primary-color;
-  width: 100%;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-}
 
 li {
   width: 100%;

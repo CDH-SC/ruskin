@@ -10,7 +10,7 @@
       (mouseenter)="diariesDrop.open()">Diaries</button>
       <div ngbDropdownMenu aria-labelledby="diariesDropdown" id="diariesDropdownList"
       (mouseleave)="diariesDrop.close()">
-        
+        <app-diary-links></app-diary-links>
       </div>
     </div>
 
@@ -22,7 +22,7 @@
       (mouseenter)="lettersDrop.open()">Letters</button>
       <div ngbDropdownMenu aria-labelledby="lettersDropdown" id="lettersDropdownList"
       (mouseleave)="lettersDrop.close()">
-        
+        <app-letter-links></app-letter-links>
       </div>
     </div>
 

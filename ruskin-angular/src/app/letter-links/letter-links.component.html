@@ -1,17 +1,16 @@
 <div class="d-flex flex-column justify-content-start align-items-start w-100" *ngIf="letters" id="letterLinksContainer">
-  <h2>Letters</h2>
     <mat-accordion>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            <a>Letters from the 1850s</a>
+            <a style="color: rgb(32, 85, 190);">Letters from the 1850s</a>
           </mat-panel-title>
         </mat-expansion-panel-header>
         <li *ngFor="let y of fifties[0]">
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                <a>{{ y }}</a>
+                <a style="color: rgb(32, 85, 190);">{{ y }}</a>
               </mat-panel-title>
             </mat-expansion-panel-header>
 
@@ -26,14 +25,14 @@
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            <a>Letters from the 1860s</a>
+            <a style="color: rgb(32, 85, 190);">Letters from the 1860s</a>
           </mat-panel-title>
         </mat-expansion-panel-header>
         <li *ngFor="let y of sixties[0]">
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                <a>{{ y }}</a>
+                <a style="color: rgb(32, 85, 190);">{{ y }}</a>
               </mat-panel-title>
             </mat-expansion-panel-header>
             <li *ngFor="let l of sixties[1][sixties[0].indexOf(y)]">
@@ -47,14 +46,14 @@
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            <a>Letters from the 1870s</a>
+            <a style="color: rgb(32, 85, 190);">Letters from the 1870s</a>
           </mat-panel-title>
         </mat-expansion-panel-header>
         <li *ngFor="let y of seventies[0]">
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                <a>{{ y }}</a>
+                <a style="color: rgb(32, 85, 190);">{{ y }}</a>
               </mat-panel-title>
             </mat-expansion-panel-header>
             <li *ngFor="let l of seventies[1][seventies[0].indexOf(y)]">

@@ -1,15 +1,16 @@
 $primary-color: #47525e;
 $font-stack: Cardo, 'Times New Roman', Times, serif;
-$secondary-color: #f24c30;
+$secondary-color: rgb(32, 85, 190);
 
 .searchBar, .searchButton {
   border: 1px solid $primary-color;
   border-radius: 5px;
+  justify-content: flex-end;
 }
 
 .viewer-box-transcript {
   height: 700px;
-  width: 557px;
+  width: 93%;
   margin: auto;
   line-height: 3px;
   background-color: rgb(255, 255, 255);
@@ -20,7 +21,7 @@ $secondary-color: #f24c30;
 
 .letter-box-transcript {
   height: 700px;
-  width: 557px;
+  width: 93%;
   margin: auto;
   /*line-height: 3px;*/
   background-color: rgb(255, 255, 255);
@@ -48,12 +49,12 @@ a {
 }
 
 h1 {
-  color: #e62e00;
+  color: $secondary-color;
   font-size: 32px
 }
 
 .metadata {
-  color: secondary-color;
+  color: $secondary-color;
 }
 
 .pagination a {
