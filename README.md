@@ -2,8 +2,7 @@
 [Development Version](https://ruskin.dev.cdhsc.org/home)
 
 [Production Version](https://ruskindigitalarchive.cdhsc.org)
-### Getting Started
----
+
 #### Prerequisites
 * [Node](https://nodejs.org/en/) version 8.5.0 or higher
 * [NPM](https://www.npmjs.com/) version 5.3.0 or higher
@@ -31,6 +30,7 @@
 
 * Create a local database
   * A binary BSON dump of the database can be found: ruskin/ruskin-database/dump
+  * You only need to do this step the first time you build the site or when there has been a db change
   * Ensure Mongo has been started on your local machine:
    * Linux:
     * ```$ sudo service mongod start```
@@ -48,42 +48,16 @@
   * ```$ mongorestore ruskin/ruskin-database/dump```
  * Troubleshooting assitance can be found [here](https://docs.mongodb.com/manual/tutorial/backup-and-restore-tools/)
 
-#### Tar Archiving Utility, Upload Script - Dealing with John Ruskin Archives
-* Please refer to README found [here](https://github.com/CDH-SC/ruskin/tree/master/ruskin-archive)
-
-#### Git LFS - Dealing with John Ruskin images
-* Installing Git LFS
-  * Mac:
-    * To use Homebrew, run ```brew install git-lfs```
-    * To use MacPorts, run ```port install git-lfs```
-    * Verify install with ```git lfs install```
-  * Linux:
-    * Download Git LFS from https://git-lfs.github.com/
-    * Unzip the file and cd into the folder.
-    * Install the file with ```$ ./install.sh```
-    * Verify installation by running ```$ git lfs install```
-
-* Using Git LFS
-  * To save time when cloning the project LFS is configured to ignore all of the notebook images by default.
-  * Cache your GitHub password
-    * Ref: https://help.github.com/articles/caching-your-github-password-in-git/
-    * Cache it by running a git command before running a git lfs command.
-  * To download all the images:
-    * ```$ git lfs fetch --all``` and ```$ git lfs checkout```
-  * To only download a specific notebook:
-    * ```$ git lfs fetch -I ruskin-angular/src/images/<notebook wanted>```
-    * ```$ git lfs checkout ruskin-angular/src/images/<notebook wanted>/*```
-  * To get notebook images to appear on the site:
-    * First build project with ```$ ng build --watch```
-    * Then copy the images with ```$ cp -R ruskin-angular/src/images ruskin-angular/dist/images```
-    * Any notebooks that are downloaded should now have images on the site.
 
 ### Deployment
 ---
 * 3 Terminal Setup
 * Terminal 1 : Runs the mongo database
-  * ```mongod``` or ```sudo mongod```
+  * ```sudo mongod --dbpath ruskin-database/dump/ruskin```
+  * This does not apply if mongo is already started.
+  * This does not necessarily need its own terminal, but it gives useful error messages.
 * Terminal 2 : Runs the Express server
+  * ```sudo mongorestore --drop -d ruskin ruskin-database/dump/ruskin --batchSize=100```
   * ```cd <path>/ruskin/ruskin-api/```
   * ```nodemon server```
   * If cannot find module ```npm install --save <module>```
@@ -92,20 +66,6 @@
   * ```ng build --watch```
 * The John Ruskin application should now be available at http://localhost:3000/home
 
-### Creating Documentation
-* Install compdoc package
-  * ```npm i -g @compodoc/compodoc```
-* Create the documentation for Angular
-  * ```cd <path>/ruskin/ruskin-angular/```
-  * ```npm run doc:buildandserve```
-  * ```Open broswer at http://localhost:8080```
-
-### Unit Tests
----
-* Run ```ng test``` to execute the unit tests via [Karma](https://karma-runner.github.io).
-* To execute unit tests for Angular
-  * ```cd <path>/ruskin/ruskin-angular/```
-  * ```npm test ``` which runs the tests found in the directory ```<path>/ruskin/ruskin-angular/spec/```
 
 ### Built With
 * [Angular4](https://angular.io/)
@@ -133,15 +93,14 @@ Note: Be sure to merge the latest from "upstream" before making a pull request!:
 ### Versioning
 
 ### Contributors
-* **Pierce Matthews**
-* **Tyler Moon**
-* **Lawton Mizell**
-* **Jerrod Mathis**
+* **Tyron Schultz**
+* **Ian McDowell**
+* **Stella Masucci**
+* **Mitchell Lambert**
+* **Colin Anderson**
+* **Dan Rochester**
 * **Caleb Kitzmann**
-* **Samyu Comandur**
+
 
 ### License
 MIT
-
-### Acknowledgments
-
