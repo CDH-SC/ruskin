@@ -43,10 +43,10 @@
         <a (click)="setPage(1)">Cover</a>
       </li>
       <li [ngClass]="{disabled:pager.currentPage === 1}">
-        <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+        <a (click)="setPage(pager.currentPage - 2)">Previous</a>
       </li>
       <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-        <a (click)="setPage(pager.currentPage + 1)">Next</a>
+        <a (click)="setPage(pager.currentPage + 2)">Next</a>
       </li>
       <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
         <a (click)="setPage(pager.totalPages)">Back Cover</a>
@@ -59,12 +59,21 @@
 
   <!-- Viewer Boxes for Manuscript/Transcription -->
   <div class="row justify-content-center">
-    <div class="col-7 col-xl-11" *ngIf="router.url.match('[0-9]/[0-9]')">
+
+    <div class="col-1 offset-0" *ngIf="router.url.match('[0-9]/[0-9]')">
       <div class="viewer-box-img">
         <lib-ngx-image-zoom [magnification]="1.5"[thumbImage]=diary.notebook_url+diary.page[page-1].image [fullImage]=diary.notebook_url+diary.page[page-1].image [zoomMode]="'click'" [enableLens]="true" [lensWidth]="250" [lensHeight]="250" [circularLens]="true">
         </lib-ngx-image-zoom>
       </div>
     </div>
+
+    <div class="col-3 offset-2" *ngIf="router.url.match('[0-9]/[0-9]')">
+      <div class="viewer-box-img">
+        <lib-ngx-image-zoom [magnification]="1.5"[thumbImage]=diary.notebook_url+diary.page[page].image [fullImage]=diary.notebook_url+diary.page[page].image [zoomMode]="'click'" [enableLens]="true" [lensWidth]="250" [lensHeight]="250" [circularLens]="true">
+        </lib-ngx-image-zoom>
+      </div>
+    </div>
+  
     <div class="col-7 col-xl-5" *ngIf="router.url.includes('letters')">
       <!-- <div class="viewer-box-transcript">
         <div *ngIf="content" [innerHTML]="content" id="transcription"></div>
@@ -145,7 +154,7 @@
   <br>
 
   <div class="row justify-content-center">
-    <div class="col-12 offset-1">
+    <div class="col-12 offset-5">
       <div class="row">
         <h1> {{ letter.docDate }}</h1>
       </div>
@@ -154,7 +163,7 @@
 
   <!-- Viewer Boxes for Manuscript/Transcription -->
   <div class="row justify-content-center">
-    <div class="col-7 col-xl-12">
+    <div class="col-7 col-x3-10">
       <div class="letter-box-transcript">
         <div [innerHTML]="content" id="transcription"></div>
       </div>
@@ -166,7 +175,7 @@
 
     <!-- Metadata -->
   <div class="row justify-content-center">
-    <div class="col-12 offset-1">
+    <div class="col-12 offset-5">
       <div class="row">
         <h1>Metadata:</h1>
       </div>
