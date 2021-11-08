@@ -79,6 +79,7 @@
 3. **Commit** changes to your own branch
 4. **Push** your work back up to your fork
 5. Submit a **Pull request** so that we can review your changes
+6. Always have someone else review your changes. Never approve your own pull request
 
 Note: Be sure to merge the latest from "upstream" before making a pull request!:
 
