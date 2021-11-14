@@ -44,6 +44,20 @@ $secondary-color: rgb(32, 85, 190);
   max-height: 700px;
 }
 
+.viewer-box-img-2 {
+  height: 700px;
+  width: 557px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.viewer-box-img-2 > img {
+  display: block;
+  margin: 0;
+  max-width: 557px;
+  max-height: 700px;
+}
+
 a {
     cursor: pointer;
 }
