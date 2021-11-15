@@ -61,7 +61,7 @@
   <div class="row justify-content-center">
 
     <!-- LEFT PAGE -->
-    <div class="col-1 offset-0" *ngIf="router.url.match('[0-9]/[0-9]')">
+    <div *ngIf="router.url.match('[0-9]/[0-9]')">
       <div class="viewer-box-img">
         <lib-ngx-image-zoom [magnification]="1.5"[thumbImage]=diary.notebook_url+diary.page[page-1].image [fullImage]=diary.notebook_url+diary.page[page-1].image [zoomMode]="'click'" [enableLens]="true" [lensWidth]="250" [lensHeight]="250" [circularLens]="true">
         </lib-ngx-image-zoom>
@@ -69,7 +69,7 @@
     </div>
 
     <!-- RIGHT PAGE -->
-    <div class="col-3 offset-2" *ngIf="router.url.match('[0-9]/[0-9]')">
+    <div *ngIf="router.url.match('[0-9]/[0-9]')">
       <div class="viewer-box-img-2">
         <lib-ngx-image-zoom [magnification]="1.5"[thumbImage]=diary.notebook_url+diary.page[page].image [fullImage]=diary.notebook_url+diary.page[page].image [zoomMode]="'click'" [enableLens]="true" [lensWidth]="250" [lensHeight]="250" [circularLens]="true">
         </lib-ngx-image-zoom>
@@ -87,7 +87,7 @@
   <br>
 
     <!-- Metadata -->
-  <div class="row justify-content-center">
+  <div class="row justify-content-center metadataRow">
     <div class="col-12 offset-5">
       <div class="row">
         <h1>Metadata:</h1>
