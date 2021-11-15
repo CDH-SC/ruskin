@@ -1,7 +1,7 @@
 ### STAGE 1: Build ###
 
 # Label this stage as 'builder'
-FROM node:latest
+FROM node:14.16.1
 ENV a /ruskin-angular
 ENV e /ruskin-api
 ENV PORT 80
