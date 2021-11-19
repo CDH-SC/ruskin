@@ -168,6 +168,10 @@
   <!-- Viewer Boxes for Manuscript/Transcription -->
   <div class="row justify-content-center">
     <div class="col-7 col-x3-10">
+      <div>
+        <a class="letter-navigation" *ngIf="hasPrevLetter" id="prev" (click)="setLetter(pager.currentPage - 1)">PREVIOUS</a>
+        <a class="letter-navigation" *ngIf="hasNextLetter" id="next" (click)="setLetter(pager.currentPage + 1)">NEXT</a>
+      </div>
       <div class="letter-box-transcript">
         <div [innerHTML]="content" id="transcription"></div>
       </div>
