@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { Diary } from '../_shared/models/diary';
 import { Letter } from '../_shared/models/letter';
@@ -54,7 +54,30 @@ export class PageViewComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private sanitizer: DomSanitizer,
-  ) { }
+  ) { 
+
+    router.events.subscribe((val) => {
+      // see also 
+      if(val instanceof NavigationEnd && val.url.includes('page-view')) {
+        const id = this.route.snapshot.paramMap.get('id');
+        this.pageNum = Number(this.route.snapshot.paramMap.get('pageNum'));
+        // if just navigating between diary pages - don't call ngOnInit to keep page loading smooth
+        if(this.diary && !this.router.url.includes('letters')) {
+          this.http.get('/api/diaries/' + id).subscribe(data => {
+            this.diary = data['data'];
+            this.allItems = data['data']['page'];
+            // initialize page to pageNum from router
+            this.setPage(this.pageNum);
+          });
+        }
+        else {
+          this.diary=null;
+          this.letter=null;
+          this.ngOnInit();
+        }
+      }
+  });
+  }
 
   ngOnInit() {
     // Get diary/letter id + current page number from router
@@ -102,7 +125,6 @@ export class PageViewComponent implements OnInit {
     if (letterId > 1) {
         this.hasPrevLetter = true;
         this.prevletterid = letterId-1;
-        console.log(this.hasPrevLetter);
      }
      else {
        this.hasPrevLetter = false;
@@ -125,7 +147,6 @@ export class PageViewComponent implements OnInit {
     this.content = this.sanitizer.bypassSecurityTrustHtml(this.letters[letterId-1].docBody);
     
     this.router.navigate(['page-view/letters/', letterId]);
-    console.log(this.pager.currentPage)
   }
 
   jumpToFolio(folioValue) {
