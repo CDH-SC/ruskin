@@ -9,7 +9,7 @@ h4 {
 }
 
 hr {
-  border-color: #808080;
+  border-color: white;
 }
 
 ul {
@@ -17,8 +17,8 @@ ul {
 }
 
 .accordion {
-  background-color: #47525e;
-  color: #ffffff;
+  background-color: rgb(51, 77, 130);
+  color: white;
   cursor: pointer;
   padding: 18px;
   margin-bottom: 10px;
@@ -33,14 +33,14 @@ ul {
 
 .accordion:after {
   content: 'View More';
-  color: #777;
+  color: white;
   float: right;
   margin-left: 5px;
 }
 
 .active, .accordion:hover {
-  background-color: white;
-  color: #e62e00;
+  background-color: rgb(51, 77, 130);
+  color: white;
 }
 
 .active:after {
@@ -49,7 +49,7 @@ ul {
 
 .panel {
   padding: 0 18px;
-  background-color: #f1f4f8;
+  background-color: white;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease-out;
