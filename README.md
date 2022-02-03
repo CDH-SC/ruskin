@@ -45,14 +45,14 @@
      * ```brew services start mongodb-community```
      * ```brew services stop mongodb-community```
 * By default MongoDB should be running on port 27017
-* Use mongorestore to restore the dump file to your local machine
+* Use mongorestore to restore the dump file to your local machine. The backup is located in ruskin-database/dump.
   * ```$ mongorestore <path to the backup>```
 * For example:
   * ```$ mongorestore ruskin/ruskin-database/dump```
 * You should see a message stating that ~158 documents were restored successfully, 0 failed to restore.
 * If this did not happen successfully/you receieved any error, try:
   * ```sudo mongorestore --drop -d ruskin ruskin/ruskin-database/dump/ruskin --batchSize=100```
-  * This gets around any permission problems with ```sudo```, drops the previous database with ```--drop```, and sets the batch size large enough that you shouldn't run into any issues.
+  * This gets around any permission problems with ```sudo```, drops the previous database with ```--drop```, specifies the database name to restore into with ```-d``` and sets the batch size large enough that you shouldn't run into any issues.
  * Troubleshooting assitance can be found [here](https://docs.mongodb.com/manual/tutorial/backup-and-restore-tools/)
 
 
