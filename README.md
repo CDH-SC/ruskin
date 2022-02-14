@@ -82,6 +82,27 @@
 * [MongoDB](https://www.mongodb.com/)
 * [Express](https://expressjs.com/)
 
+---
+### Building with Docker
+---
+* Navigate to the root folder of the site
+* Run ```docker-compose build```
+* Run ```docker-compose up -d```
+* The site should now be running 
+#### Restart
+* To restart the site, just bring the site down and back up
+* Navigate to the root folder of the site
+* ```docker-compose down```
+* ```docker-compose up -d```
+#### Updating 
+* To update, pull from GitHub to get the latest changes
+* ```sudo git pull origin master```
+* Then rebuild the site and bring it up
+* ```docker-compose down``` (only if the site was running already)
+* ```docker-compose build```
+* ```docker-compose up -d```
+---
+
 ### Contributing
 1. **Fork** the repo
 2. **Clone** the project to your own machine
