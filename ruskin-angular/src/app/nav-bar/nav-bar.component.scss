@@ -1,15 +1,54 @@
-$primary-color: #47525e;
+$primary-color: rgb(32, 85, 190);
 $font-stack: Cardo, 'Times New Roman', Times, serif;
 $secondary-color: #f24c30;
 
 #nav {
   background: none;
-  font-size: 18px !important;
-  font-weight: bold;
-  max-width: 1440px;
+  font-size: 24px !important;
+  color: $primary-color !important;
+  width: 100%;
   margin: 0;
+  border-bottom: 3px dotted $primary-color;
 }
 
 #nav a {
   text-decoration: none;
+}
+
+#navLinks {
+  width: 100%;
+}
+
+#diariesDropdown {
+  font-size: 24px !important;
+  color: $primary-color !important;
+}
+
+#diariesDropdownList {
+  background-color: white;
+}
+
+#diariesDropdownList a:hover {
+  background-color: $primary-color;
+}
+
+#lettersDropdown {
+  font-size: 24px !important;
+  color: $primary-color !important;
+}
+
+#lettersDropdownList {
+  background-color: white;
+}
+
+#lettersDropdownList a:hover {
+  background-color: $primary-color;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-item:visited {
+  background-color: #21596f;
 }

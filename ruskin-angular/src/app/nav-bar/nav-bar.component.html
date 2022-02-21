@@ -1,7 +1,38 @@
-<div class="d-flex flex-row justify-content-end w-100" id="nav">
-  <div class="d-flex flex-row justify-content-around w-100" id="navLinks">
+<div class='d-flex justify-content-center' id='nav'>
+  <div class='d-flex justify-content-around align-items-center' id='navLinks'>
     <a [routerLink]="['/home']" routerLinkActive="active">Home</a>
+    
+    <!-- Diaries -->
+    <div class="d-inline-block" ngbDropdown #diariesDrop="ngbDropdown">
+      <button class="btn btn-link"
+      role="button"
+      id="diariesDropdown" ngbDropdownAnchor
+      (mouseenter)="diariesDrop.open()">Diaries</button>
+      <div ngbDropdownMenu aria-labelledby="diariesDropdown" id="diariesDropdownList"
+      (mouseleave)="diariesDrop.close()">
+        <app-diary-links></app-diary-links>
+      </div>
+    </div>
+
+    <!-- Letters -->
+    <div class="d-inline-block" ngbDropdown #lettersDrop="ngbDropdown">
+      <button class="btn btn-link"
+      role="button"
+      id="lettersDropdown" ngbDropdownAnchor
+      (mouseenter)="lettersDrop.open()">Letters</button>
+      <div ngbDropdownMenu aria-labelledby="lettersDropdown" id="lettersDropdownList"
+      (mouseleave)="lettersDrop.close()">
+        <app-letter-links></app-letter-links>
+      </div>
+    </div>
+
+    <!-- Resources -->
     <a [routerLink]="['/resources']" routerLinkActive="active">Resources</a>
+
+    <!-- About -->
     <a [routerLink]="['/about']" routerLinkActive="active">About</a>
+
+    <!-- Search Bar -->
+    <app-search-bar></app-search-bar>
   </div>
 </div>

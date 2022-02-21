@@ -1,5 +1,4 @@
 <div class="d-flex flex-column justify-content-start align-items-start w-100" *ngIf="diary" id="diaryLinksContainer">
-  <h2>Diaries</h2>
   <li *ngFor="let d of diary">
     <a id={{d._id}} routerLink="/page-view/{{ d._id }}/1" routerLinkActive="active">
       Diary {{ d._id }} ({{ d.date }})

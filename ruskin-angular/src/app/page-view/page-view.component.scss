@@ -1,15 +1,16 @@
 $primary-color: #47525e;
 $font-stack: Cardo, 'Times New Roman', Times, serif;
-$secondary-color: #f24c30;
+$secondary-color: rgb(32, 85, 190);
 
 .searchBar, .searchButton {
   border: 1px solid $primary-color;
   border-radius: 5px;
+  justify-content: flex-end;
 }
 
 .viewer-box-transcript {
   height: 700px;
-  width: 557px;
+  width: 93%;
   margin: auto;
   line-height: 3px;
   background-color: rgb(255, 255, 255);
@@ -20,7 +21,7 @@ $secondary-color: #f24c30;
 
 .letter-box-transcript {
   height: 700px;
-  width: 557px;
+  width: 93%;
   margin: auto;
   /*line-height: 3px;*/
   background-color: rgb(255, 255, 255);
@@ -32,13 +33,27 @@ $secondary-color: #f24c30;
 .viewer-box-img {
   height: 700px;
   width: 557px;
-  margin: auto;
+  margin: 0;
   overflow: hidden;
 }
 
 .viewer-box-img > img {
   display: block;
-  margin: auto;
+  margin: 0;
+  max-width: 557px;
+  max-height: 700px;
+}
+
+.viewer-box-img-2 {
+  height: 700px;
+  width: 557px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.viewer-box-img-2 > img {
+  display: block;
+  margin: 0;
   max-width: 557px;
   max-height: 700px;
 }
@@ -48,12 +63,12 @@ a {
 }
 
 h1 {
-  color: #e62e00;
+  color: $secondary-color;
   font-size: 32px
 }
 
 .metadata {
-  color: secondary-color;
+  color: $secondary-color;
 }
 
 .pagination a {
@@ -102,14 +117,18 @@ h1 {
   display: block;
   height: 28px;
   padding: 2px;
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-left: 5%;
+  margin-right: 5%;
   margin-bottom: 5px;
   margin-top: 5px;
   border: 1px solid #21596f;
   border-radius: 5px;
   color: black;
   font-size: 16px;
+}
+
+.metadataRow {
+  width: 80%;
 }
 
 #prev {
